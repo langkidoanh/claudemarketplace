@@ -63,35 +63,45 @@ function initMobileMenu() {
 
   let isOpen = false;
 
-  hamburger.addEventListener('click', () => {
-    isOpen = !isOpen;
-    navLinks.style.display = isOpen ? 'flex' : '';
-    navLinks.style.flexDirection = isOpen ? 'column' : '';
-    navLinks.style.position = isOpen ? 'fixed' : '';
-    navLinks.style.top = isOpen ? '72px' : '';
-    navLinks.style.left = isOpen ? '0' : '';
-    navLinks.style.right = isOpen ? '0' : '';
-    navLinks.style.background = isOpen ? 'rgba(10,15,30,0.98)' : '';
-    navLinks.style.padding = isOpen ? '16px' : '';
-    navLinks.style.zIndex = isOpen ? '200' : '';
-    navLinks.style.borderBottom = isOpen ? '1px solid rgba(255,255,255,0.08)' : '';
-
-    // Animate hamburger
+  function openMenu() {
+    isOpen = true;
+    navLinks.classList.add('nav--open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
     const spans = hamburger.querySelectorAll('span');
-    if (isOpen) {
-      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-      spans[1].style.opacity   = '0';
-      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity   = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    navLinks.classList.remove('nav--open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    const spans = hamburger.querySelectorAll('span');
+    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+
+  hamburger.addEventListener('click', () => {
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Đóng menu khi click vào link
+  navLinks.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Đóng menu khi click ra ngoài
+  document.addEventListener('click', (e) => {
+    if (isOpen && !hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+      closeMenu();
     }
   });
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (isOpen && !hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-      hamburger.click();
-    }
+  // Đóng menu khi bấm Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) closeMenu();
   });
 }
 

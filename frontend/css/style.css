@@ -1565,6 +1565,11 @@ p { color: var(--color-text-secondary); }
   to { transform: rotate(360deg); }
 }
 
+/* ─── PAGE WRAP (offset fixed nav cho subpages) ─────────────── */
+.page-wrap {
+  padding-top: var(--nav-height);
+}
+
 /* ─── SCROLL REVEAL (JS class hooks) ────────────────────────── */
 .reveal {
   opacity: 0;
@@ -1590,20 +1595,66 @@ p { color: var(--color-text-secondary); }
 @media (max-width: 768px) {
   :root { --nav-height: 64px; }
 
-  .nav__links   { display: none; }
-  .nav__hamburger { display: flex; }
+  /* ── Nav mobile ─────────────────────────────────────── */
+  .nav__links      { display: none; }
+  .nav__hamburger  { display: flex; }
 
+  /* Ẩn 2 button chữ trên mobile, chỉ giữ hamburger */
+  .nav__actions .btn { display: none; }
+
+  /* Mobile menu overlay khi open */
+  .nav__links.nav--open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(7, 12, 26, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: var(--space-6) var(--space-6) var(--space-10);
+    z-index: var(--z-dropdown);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    gap: var(--space-1);
+    overflow-y: auto;
+    align-items: flex-start;
+  }
+
+  .nav__links.nav--open .nav__link {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    padding: var(--space-4) var(--space-3);
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav__links.nav--open .nav__link:last-child {
+    border-bottom: none;
+  }
+
+  /* CTA buttons trong mobile menu */
+  .nav__links.nav--open::after {
+    content: '';
+    display: block;
+    flex: 1;
+  }
+
+  /* ── Grids ──────────────────────────────────────────── */
   .grid-2,
   .grid-3,
   .grid-4 { grid-template-columns: 1fr; }
 
-  .hero__title { font-size: clamp(2rem, 8vw, 3rem); }
-  .hero__stats { gap: var(--space-6); }
+  .hero__title  { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero__stats  { gap: var(--space-6); }
 
   .filter-bar { flex-direction: column; align-items: stretch; }
   .filter-bar__search { min-width: unset; }
 
   .section { padding: var(--space-16) 0; }
+
+  /* .page-wrap đã handle padding-top cho subpages */
 }
 
 @media (max-width: 480px) {
