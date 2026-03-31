@@ -2,13 +2,11 @@
   "version": 2,
   "name": "claudemarketplace",
   "outputDirectory": "frontend",
+  "cleanUrls": true,
   "rewrites": [
-    { "source": "/ai-agents/:slug", "destination": "/agent-detail.html" },
-    { "source": "/ai-agents",       "destination": "/marketplace.html" },
-    { "source": "/tin-tuc/:cat/:slug", "destination": "/news-detail.html" },
-    { "source": "/tin-tuc/:path*",  "destination": "/news.html" },
-    { "source": "/dich-vu/:path*",  "destination": "/services.html" },
-    { "source": "/lien-he",         "destination": "/contact.html" },
-    { "source": "/ve-chung-toi",    "destination": "/contact.html" }
+    { "source": "/ai-agents/:slug", "destination": "/agent-detail" },
+    { "source": "/tin-tuc-:category/:slug", "destination": "/news-detail" },
+    { "source": "/lien-he", "destination": "/contact" },
+    { "source": "/ve-chung-toi", "destination": "/contact" }
   ]
 }
