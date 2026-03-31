@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Marketplace – AI Agents cho Doanh Nghiệp Việt Nam | claudemarketplace.vn</title>
+  <meta name="description" content="Khám phá 20+ AI Agents đã hoàn thiện cho Sales, Marketing, CRM, CSKH, Phân tích kinh doanh và Research thị trường. Triển khai ngay – không cần đội kỹ thuật." />
+  <meta name="keywords" content="AI agents, AI agent marketplace, AI cho doanh nghiệp, agent sale, agent marketing, agent phân tích kinh doanh, claude AI" />
+  <link rel="canonical" href="https://claudemarketplace.vn/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://claudemarketplace.vn/" />
+  <meta property="og:title"       content="Claude Marketplace – AI Agents cho Doanh Nghiệp Việt Nam" />
+  <meta property="og:description" content="Khám phá 20+ AI Agents đã hoàn thiện. Tự động hóa vận hành doanh nghiệp ngay hôm nay." />
+  <meta property="og:image"       content="https://claudemarketplace.vn/images/og-home.jpg" />
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Claude Marketplace",
+    "url": "https://claudemarketplace.vn",
+    "logo": "https://claudemarketplace.vn/images/logo.png",
+    "description": "Marketplace AI Agents chuyên biệt cho doanh nghiệp Việt Nam",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@claudemarketplace.vn"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Điều hướng chính">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="Claude Marketplace - Trang chủ">
+        <div class="nav__logo-icon" aria-hidden="true">⚡</div>
+        <div class="nav__logo-text">
+          <span>Claude</span>Marketplace
+        </div>
+      </a>
+
+      <div class="nav__links" role="menubar">
+        <a href="/" class="nav__link active" role="menuitem">Trang chủ</a>
+        <a href="/ai-agents" class="nav__link" role="menuitem">AI Agents</a>
+        <a href="/tin-tuc-ai-agents" class="nav__link" role="menuitem">Tin tức</a>
+        <a href="/dich-vu" class="nav__link" role="menuitem">Dịch vụ</a>
+        <a href="/ve-chung-toi" class="nav__link" role="menuitem">Về chúng tôi</a>
+        <a href="/lien-he" class="nav__link" role="menuitem">Liên hệ</a>
+      </div>
+
+      <div class="nav__actions">
+        <button class="btn btn--outline btn--sm" onclick="window.location='/lien-he'">
+          Tư vấn miễn phí
+        </button>
+        <button class="btn btn--primary btn--sm" onclick="window.location='/ai-agents'">
+          Xem tất cả Agents
+        </button>
+        <button class="nav__hamburger" aria-label="Mở menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO SECTION ────────────────────────────────────────── -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg">
+    <div class="hero__gradient"></div>
+    <div class="hero__grid"></div>
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+    <div class="hero__particles" aria-hidden="true"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__eyebrow" aria-label="Thông báo mới">
+        <span>🚀</span>
+        <span>20+ AI Agents đã sẵn sàng triển khai cho doanh nghiệp của bạn</span>
+      </div>
+
+      <h1 id="hero-title" class="hero__title">
+        Tự động hóa doanh nghiệp<br />
+        với <span class="text-gradient" id="typing-target" data-typing='["AI Agent Sale 24/7","AI Agent Research","AI Agent CSKH","AI Agent Marketing","AI Agent Phân tích"]'>AI Agent Sale 24/7</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Marketplace AI Agents chuyên biệt cho doanh nghiệp Việt Nam. Từ Sale, Marketing đến Phân tích kinh doanh —
+        chọn agent phù hợp, triển khai ngay, không cần đội kỹ thuật.
+      </p>
+
+      <div class="hero__actions">
+        <a href="/ai-agents" class="btn btn--primary btn--lg">
+          🛒 Khám phá AI Agents
+        </a>
+        <a href="/lien-he" class="btn btn--outline btn--lg">
+          📞 Tư vấn miễn phí
+        </a>
+      </div>
+
+      <div class="hero__stats" aria-label="Thống kê nền tảng">
+        <div class="hero__stat">
+          <div class="hero__stat-value" data-count="22" data-suffix="+">0+</div>
+          <div class="hero__stat-label">AI Agents</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-value" data-count="500" data-suffix="+">0+</div>
+          <div class="hero__stat-label">Doanh nghiệp đang dùng</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-value" data-count="4.8" data-suffix="★" data-decimals="1">0★</div>
+          <div class="hero__stat-label">Đánh giá trung bình</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-value" data-count="40" data-suffix="%" data-prefix="-">0%</div>
+          <div class="hero__stat-label">Chi phí vận hành tiết kiệm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DEPARTMENTS SECTION ─────────────────────────────────── -->
+<section class="section section--sm" aria-labelledby="dept-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Phân theo phòng ban</p>
+      <h2 id="dept-title" class="section-title">Agents cho mọi bộ phận doanh nghiệp</h2>
+      <p class="section-desc">Chọn agents theo phòng ban của bạn để tự động hóa đúng nghiệp vụ cần thiết</p>
+    </header>
+
+    <div class="dept-cards-grid reveal">
+      <a href="/ai-agents?dept=sales-marketing" class="dept-card" aria-label="Sales & Marketing - 5 agents">
+        <div class="dept-card__icon">📈</div>
+        <div class="dept-card__name">Sales & Marketing</div>
+        <div class="dept-card__count">5 agents</div>
+      </a>
+      <a href="/ai-agents?dept=phan-tich-kinh-doanh" class="dept-card" aria-label="Phân tích Kinh doanh - 3 agents">
+        <div class="dept-card__icon">📊</div>
+        <div class="dept-card__name">Phân tích Kinh doanh</div>
+        <div class="dept-card__count">3 agents</div>
+      </a>
+      <a href="/ai-agents?dept=research-thi-truong" class="dept-card" aria-label="Research Thị trường - 3 agents">
+        <div class="dept-card__icon">🔍</div>
+        <div class="dept-card__name">Research Thị trường</div>
+        <div class="dept-card__count">3 agents</div>
+      </a>
+      <a href="/ai-agents?dept=crm-cskh" class="dept-card" aria-label="CRM & CSKH - 4 agents">
+        <div class="dept-card__icon">🤝</div>
+        <div class="dept-card__name">CRM & CSKH</div>
+        <div class="dept-card__count">4 agents</div>
+      </a>
+      <a href="/ai-agents?dept=content" class="dept-card" aria-label="Content & Truyền thông - 3 agents">
+        <div class="dept-card__icon">✍️</div>
+        <div class="dept-card__name">Content & Truyền thông</div>
+        <div class="dept-card__count">3 agents</div>
+      </a>
+      <a href="/ai-agents?dept=hr" class="dept-card" aria-label="HR & Tuyển dụng - 2 agents">
+        <div class="dept-card__icon">👥</div>
+        <div class="dept-card__name">HR & Tuyển dụng</div>
+        <div class="dept-card__count">2 agents</div>
+      </a>
+      <a href="/ai-agents?dept=tai-chinh" class="dept-card" aria-label="Tài chính & Vận hành - 3 agents">
+        <div class="dept-card__icon">💰</div>
+        <div class="dept-card__name">Tài chính & Vận hành</div>
+        <div class="dept-card__count">3 agents</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURED AGENTS ──────────────────────────────────────── -->
+<section class="section" aria-labelledby="featured-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Nổi bật</p>
+      <h2 id="featured-title" class="section-title">AI Agents bán chạy nhất</h2>
+      <p class="section-desc">Được hàng trăm doanh nghiệp Việt Nam tin dùng mỗi ngày</p>
+    </header>
+
+    <div class="grid grid-3">
+      <!-- Agent 1 -->
+      <article class="agent-card reveal" data-dept="sales-marketing" data-name="agent-chot-sale" data-status="live" data-price="5000000" data-rating="4.9" data-users="128">
+        <div class="agent-card__header">
+          <div class="agent-card__icon" aria-hidden="true">🎯</div>
+          <div class="agent-card__status">
+            <span class="badge badge--live">Đang hoạt động</span>
+          </div>
+        </div>
+        <p class="agent-card__dept">Sales &amp; Marketing</p>
+        <h3 class="agent-card__name">Agent Tư Vấn &amp; Chốt Sale 24/7</h3>
+        <p class="agent-card__desc">Tự động phản hồi lead mọi lúc, gợi ý kịch bản chốt sale theo từng loại khách hàng, không bao giờ bỏ lỡ cơ hội.</p>
+        <div class="agent-card__meta">
+          <div class="agent-card__meta-item">
+            <span class="agent-card__rating">★★★★★</span>
+            <span>4.9</span>
+          </div>
+          <div class="agent-card__meta-item">👥 128 DN đang dùng</div>
+        </div>
+        <div class="agent-card__footer">
+          <div class="agent-card__price">5.000.000<span>đ</span></div>
+          <a href="/ai-agents/agent-tu-van-chot-sale-24-7" class="btn btn--primary btn--sm">Xem chi tiết</a>
+        </div>
+      </article>
+
+      <!-- Agent 2 -->
+      <article class="agent-card reveal reveal--delay-1" data-dept="phan-tich-kinh-doanh" data-name="agent-phan-tich-kqkd" data-status="live" data-price="5000000" data-rating="4.8" data-users="112">
+        <div class="agent-card__header">
+          <div class="agent-card__icon" aria-hidden="true">📊</div>
+          <div class="agent-card__status">
+            <span class="badge badge--live">Đang hoạt động</span>
+          </div>
+        </div>
+        <p class="agent-card__dept">Phân tích Kinh doanh</p>
+        <h3 class="agent-card__name">Agent Phân Tích Kết Quả Kinh Doanh Tự Động</h3>
+        <p class="agent-card__desc">Tự động tổng hợp data, sinh báo cáo P&amp;L, KPI theo ngày/tuần/tháng. Sếp hỏi là có số ngay.</p>
+        <div class="agent-card__meta">
+          <div class="agent-card__meta-item">
+            <span class="agent-card__rating">★★★★★</span>
+            <span>4.8</span>
+          </div>
+          <div class="agent-card__meta-item">👥 112 DN đang dùng</div>
+        </div>
+        <div class="agent-card__footer">
+          <div class="agent-card__price">5.000.000<span>đ</span></div>
+          <a href="/ai-agents/agent-phan-tich-ket-qua-kinh-doanh-tu-dong" class="btn btn--primary btn--sm">Xem chi tiết</a>
+        </div>
+      </article>
+
+      <!-- Agent 3 -->
+      <article class="agent-card reveal reveal--delay-2" data-dept="content" data-name="agent-content-seo" data-status="live" data-price="5000000" data-rating="4.9" data-users="145">
+        <div class="agent-card__header">
+          <div class="agent-card__icon" aria-hidden="true">✍️</div>
+          <div class="agent-card__status">
+            <span class="badge badge--hot">🔥 Bán chạy nhất</span>
+          </div>
+        </div>
+        <p class="agent-card__dept">Content &amp; Truyền thông</p>
+        <h3 class="agent-card__name">Agent Viết Content SEO Tự Động</h3>
+        <p class="agent-card__desc">Sinh content chuẩn SEO đa kênh từ 1 brief. Bài viết, social post, email — tất cả theo đúng tone of brand.</p>
+        <div class="agent-card__meta">
+          <div class="agent-card__meta-item">
+            <span class="agent-card__rating">★★★★★</span>
+            <span>4.9</span>
+          </div>
+          <div class="agent-card__meta-item">👥 145 DN đang dùng</div>
+        </div>
+        <div class="agent-card__footer">
+          <div class="agent-card__price">5.000.000<span>đ</span></div>
+          <a href="/ai-agents/agent-viet-content-seo-tu-dong" class="btn btn--primary btn--sm">Xem chi tiết</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/ai-agents" class="btn btn--outline btn--lg">
+        Xem tất cả 22 AI Agents →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ──────────────────────────────────────────── -->
+<section class="section section--sm" style="background: rgba(255,255,255,0.01); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);" aria-labelledby="how-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Quy trình</p>
+      <h2 id="how-title" class="section-title">Triển khai AI Agent chỉ trong 3 bước</h2>
+    </header>
+
+    <div class="how-it-works reveal">
+      <div class="how-step">
+        <div class="how-step__num">1</div>
+        <h3 class="how-step__title">Chọn Agent</h3>
+        <p class="how-step__desc">Browse marketplace, lọc theo phòng ban, đọc mô tả chi tiết và xem demo. Chọn agent phù hợp với bài toán của bạn.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step__num">2</div>
+        <h3 class="how-step__title">Tích hợp &amp; Cấu hình</h3>
+        <p class="how-step__desc">Đội ngũ của chúng tôi hỗ trợ tích hợp vào hệ thống hiện có (CRM, Zalo, website...). Setup hoàn tất trong 3–5 ngày làm việc.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step__num">3</div>
+        <h3 class="how-step__title">Vận hành &amp; Scale</h3>
+        <p class="how-step__desc">Agent hoạt động 24/7 tự động. Theo dõi hiệu suất qua dashboard, nhận báo cáo định kỳ và mở rộng khi cần.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRE-ORDER AGENTS ─────────────────────────────────────── -->
+<section class="section" aria-labelledby="preorder-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Sắp ra mắt</p>
+      <h2 id="preorder-title" class="section-title">Đặt hàng trước — Nhận ưu đãi 20%</h2>
+      <p class="section-desc">Các agents đang trong giai đoạn phát triển cuối. Đặt hàng trước để được ưu tiên onboarding và giảm giá đặc biệt.</p>
+    </header>
+
+    <div class="grid grid-3">
+      <article class="agent-card agent-card--preorder reveal" data-status="preorder">
+        <div class="agent-card__header">
+          <div class="agent-card__icon">🧠</div>
+          <span class="badge badge--preorder">Đặt hàng trước</span>
+        </div>
+        <p class="agent-card__dept">Phân tích Kinh doanh</p>
+        <h3 class="agent-card__name">Agent BI Dashboard Tự Động Cho Doanh Nghiệp</h3>
+        <p class="agent-card__desc">Kết nối mọi nguồn data → tự sinh dashboard thông minh với narrative tự động. Không cần Power BI, không cần dev.</p>
+        <div class="agent-card__meta">
+          <div class="agent-card__meta-item">🗓️ Dự kiến: Q2/2025</div>
+          <div class="agent-card__meta-item">🔔 47 đã đặt hàng</div>
+        </div>
+        <div class="agent-card__footer">
+          <div class="agent-card__price" style="font-size: var(--text-base);">
+            <s style="color:var(--color-text-muted); font-size: var(--text-sm);">5.000.000đ</s>
+            <span style="color: var(--color-warning); font-size: var(--text-xl); font-weight: 800; display:block;">4.000.000đ</span>
+          </div>
+          <button class="btn btn--outline btn--sm" style="border-color: var(--color-warning); color: var(--color-warning);">Đặt hàng trước</button>
+        </div>
+      </article>
+
+      <article class="agent-card agent-card--preorder reveal reveal--delay-1" data-status="preorder">
+        <div class="agent-card__header">
+          <div class="agent-card__icon">📡</div>
+          <span class="badge badge--preorder">Đặt hàng trước</span>
+        </div>
+        <p class="agent-card__dept">Sales & Marketing</p>
+        <h3 class="agent-card__name">Agent Social Listening &amp; Brand Monitor Tự Động</h3>
+        <p class="agent-card__desc">Quét FB, Zalo groups, TikTok, forums → tổng hợp sentiment về brand mỗi ngày. Alert ngay khi có khủng hoảng truyền thông.</p>
+        <div class="agent-card__meta">
+          <div class="agent-card__meta-item">🗓️ Dự kiến: Q2/2025</div>
+          <div class="agent-card__meta-item">🔔 31 đã đặt hàng</div>
+        </div>
+        <div class="agent-card__footer">
+          <div class="agent-card__price" style="font-size: var(--text-base);">
+            <s style="color:var(--color-text-muted); font-size: var(--text-sm);">5.000.000đ</s>
+            <span style="color: var(--color-warning); font-size: var(--text-xl); font-weight: 800; display:block;">4.000.000đ</span>
+          </div>
+          <button class="btn btn--outline btn--sm" style="border-color: var(--color-warning); color: var(--color-warning);">Đặt hàng trước</button>
+        </div>
+      </article>
+
+      <article class="agent-card agent-card--preorder reveal reveal--delay-2" data-status="preorder">
+        <div class="agent-card__header">
+          <div class="agent-card__icon">🎬</div>
+          <span class="badge badge--preorder">Đặt hàng trước</span>
+        </div>
+        <p class="agent-card__dept">Content & Truyền thông</p>
+        <h3 class="agent-card__name">Agent Sản Xuất Script Video &amp; Podcast Tự Động</h3>
+        <p class="agent-card__desc">Từ chủ đề → script video hoàn chỉnh, kịch bản podcast, storyboard. Đúng format từng nền tảng YouTube, TikTok, Spotify.</p>
+        <div class="agent-card__meta">
+          <div class="agent-card__meta-item">🗓️ Dự kiến: Q3/2025</div>
+          <div class="agent-card__meta-item">🔔 28 đã đặt hàng</div>
+        </div>
+        <div class="agent-card__footer">
+          <div class="agent-card__price" style="font-size: var(--text-base);">
+            <s style="color:var(--color-text-muted); font-size: var(--text-sm);">5.000.000đ</s>
+            <span style="color: var(--color-warning); font-size: var(--text-xl); font-weight: 800; display:block;">4.000.000đ</span>
+          </div>
+          <button class="btn btn--outline btn--sm" style="border-color: var(--color-warning); color: var(--color-warning);">Đặt hàng trước</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─────────────────────────────────────────── -->
+<section class="section section--sm" style="background: rgba(255,255,255,0.01); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);" aria-labelledby="testimonials-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Khách hàng nói gì</p>
+      <h2 id="testimonials-title" class="section-title">Doanh nghiệp đã thay đổi thế nào</h2>
+    </header>
+
+    <div class="grid grid-3">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">Triển khai Agent Sale chưa đầy 1 tuần, tỉ lệ phản hồi lead tăng từ 40% lên 92%. Đội sales giờ tập trung vào khách hàng chất lượng hơn thay vì trả lời tin nhắn cả ngày.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">NM</div>
+          <div>
+            <div class="testimonial-name">Nguyễn Minh Anh</div>
+            <div class="testimonial-role">Giám đốc Sales, Công ty TNHH XYZ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal--delay-1">
+        <p class="testimonial-quote">Báo cáo kinh doanh hàng tháng trước đây mất 2 ngày làm thủ công. Bây giờ Agent tổng hợp và gửi email báo cáo tự động mỗi sáng thứ 2 — chính xác và đẹp hơn.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">TH</div>
+          <div>
+            <div class="testimonial-name">Trần Hoàng Phúc</div>
+            <div class="testimonial-role">CFO, Tập đoàn ABC</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal--delay-2">
+        <p class="testimonial-quote">Research thị trường để ra báo cáo trước mất 3 tuần và 15 triệu thuê agency. Agent làm trong 2 tiếng với chi phí cố định. Chất lượng thông tin tốt hơn nhiều.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LT</div>
+          <div>
+            <div class="testimonial-name">Lê Thị Thu Hà</div>
+            <div class="testimonial-role">Trưởng phòng Marketing, Startup DEF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEWS PREVIEW ─────────────────────────────────────────── -->
+<section class="section" aria-labelledby="news-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Tin tức mới nhất</p>
+      <h2 id="news-title" class="section-title">Cập nhật AI Agent &amp; Claude</h2>
+      <p class="section-desc">Tin tức, case study và hướng dẫn mới nhất về AI Agents cho doanh nghiệp</p>
+    </header>
+
+    <div class="grid grid-3">
+      <article class="news-card reveal">
+        <a href="/tin-tuc-claude-updates/claude-3-5-sonnet-cap-nhat-moi-nhat-anh-huong-ai-agents">
+          <div class="news-card__thumbnail">
+            <div class="news-card__thumb-placeholder">🤖</div>
+          </div>
+        </a>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="badge badge--category">Tin Tức Claude Updates</span>
+            <span class="news-card__read-time">5 phút đọc</span>
+          </div>
+          <a href="/tin-tuc-claude-updates/claude-3-5-sonnet-cap-nhat-moi-nhat-anh-huong-ai-agents">
+            <h3 class="news-card__title">Claude 3.5 Sonnet Cập Nhật Gì Mới Nhất Và Ảnh Hưởng Đến AI Agents Ra Sao</h3>
+          </a>
+          <p class="news-card__excerpt">Anthropic vừa ra mắt Claude 3.5 Sonnet với nhiều cải tiến đột phá. Chúng ta sẽ phân tích tác động thực tế đến các AI Agents đang hoạt động...</p>
+          <div class="news-card__footer">
+            <div class="news-card__author">
+              <div class="news-card__author-avatar">AT</div>
+              <span>Anh Tuấn</span>
+            </div>
+            <span class="news-card__date">15/03/2025</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card reveal reveal--delay-1">
+        <a href="/tin-tuc-case-study-doanh-nghiep/tang-40-doanh-thu-nho-agent-sale-ai">
+          <div class="news-card__thumbnail">
+            <div class="news-card__thumb-placeholder">📈</div>
+          </div>
+        </a>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="badge badge--category">Tin Tức Case Study Doanh Nghiệp</span>
+            <span class="news-card__read-time">8 phút đọc</span>
+          </div>
+          <a href="/tin-tuc-case-study-doanh-nghiep/tang-40-doanh-thu-nho-agent-sale-ai">
+            <h3 class="news-card__title">Case Study: Doanh Nghiệp Bán Lẻ Tăng 40% Doanh Thu Nhờ Agent Sale AI</h3>
+          </a>
+          <p class="news-card__excerpt">Câu chuyện thực tế từ chuỗi bán lẻ 30 cửa hàng tại TP.HCM — từ 40% phản hồi lead lên 92% chỉ sau 2 tuần triển khai...</p>
+          <div class="news-card__footer">
+            <div class="news-card__author">
+              <div class="news-card__author-avatar">MH</div>
+              <span>Minh Hiếu</span>
+            </div>
+            <span class="news-card__date">10/03/2025</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card reveal reveal--delay-2">
+        <a href="/tin-tuc-ai-agents/ai-agent-la-gi-giai-thich-toan-dien-cho-doanh-nghiep-viet-nam">
+          <div class="news-card__thumbnail">
+            <div class="news-card__thumb-placeholder">💡</div>
+          </div>
+        </a>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="badge badge--category">Tin Tức AI Agents</span>
+            <span class="news-card__read-time">6 phút đọc</span>
+          </div>
+          <a href="/tin-tuc-ai-agents/ai-agent-la-gi-giai-thich-toan-dien-cho-doanh-nghiep-viet-nam">
+            <h3 class="news-card__title">AI Agent Là Gì? Giải Thích Toàn Diện Cho Doanh Nghiệp Việt Nam</h3>
+          </a>
+          <p class="news-card__excerpt">AI Agent khác chatbot thông thường như thế nào? Tại sao mọi doanh nghiệp nên bắt đầu triển khai ngay bây giờ? Giải thích đơn giản...</p>
+          <div class="news-card__footer">
+            <div class="news-card__author">
+              <div class="news-card__author-avatar">TL</div>
+              <span>Thu Lan</span>
+            </div>
+            <span class="news-card__date">05/03/2025</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/tin-tuc-ai-agents" class="btn btn--outline btn--lg">Xem tất cả tin tức →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES PREVIEW ──────────────────────────────────────── -->
+<section class="section section--sm" style="background: rgba(255,255,255,0.01); border-top:1px solid var(--color-border);" aria-labelledby="services-title">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Dịch vụ</p>
+      <h2 id="services-title" class="section-title">Cần hỗ trợ triển khai?</h2>
+      <p class="section-desc">Ngoài việc tự mua agents, chúng tôi cung cấp 2 modules dịch vụ chuyên sâu</p>
+    </header>
+
+    <div class="grid grid-2">
+      <div class="glass-card reveal" style="padding: var(--space-8);">
+        <div style="font-size: 48px; margin-bottom: var(--space-4);">🎓</div>
+        <p style="font-size: var(--text-xs); font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-2);">Module 01</p>
+        <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-3);">Đào Tạo Triển Khai AI Agents Cho Doanh Nghiệp</h3>
+        <p style="color: var(--color-text-muted); margin-bottom: var(--space-6); font-size: var(--text-sm);">
+          Khóa học từ cơ bản đến nâng cao, 3 cấp độ. Đào tạo đội ngũ nội bộ để tự vận hành và phát triển AI Agents. Online, offline và workshop tại doanh nghiệp.
+        </p>
+        <ul style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-6);">
+          <li style="display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-secondary);">✅ Chương trình 3 cấp độ: Cơ bản → Nâng cao → Master</li>
+          <li style="display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-secondary);">✅ Giảng viên thực chiến có kinh nghiệm triển khai thực tế</li>
+          <li style="display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-secondary);">✅ Hỗ trợ sau khóa học 3 tháng</li>
+        </ul>
+        <a href="/dich-vu/dao-tao-trien-khai-ai-agents-cho-doanh-nghiep" class="btn btn--outline">Xem chương trình đào tạo</a>
+      </div>
+
+      <div class="glass-card reveal reveal--delay-1" style="padding: var(--space-8); border-color: rgba(37,99,235,0.3); background: rgba(37,99,235,0.04);">
+        <div style="font-size: 48px; margin-bottom: var(--space-4);">🚀</div>
+        <p style="font-size: var(--text-xs); font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-2);">Module 02</p>
+        <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-3);">Tư Vấn, Setup &amp; Chuyển Giao Bộ AI Agents Cho Doanh Nghiệp</h3>
+        <p style="color: var(--color-text-muted); margin-bottom: var(--space-6); font-size: var(--text-sm);">
+          Chúng tôi làm tất cả cho bạn: khảo sát, thiết kế, build, test, bàn giao và hỗ trợ vận hành 3 tháng. Doanh nghiệp nhận bộ agents hoàn chỉnh và đội ngũ biết cách dùng.
+        </p>
+        <ul style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-6);">
+          <li style="display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-secondary);">✅ Quy trình 5 bước rõ ràng, timeline cam kết</li>
+          <li style="display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-secondary);">✅ Gói Starter / Growth / Enterprise linh hoạt</li>
+          <li style="display: flex; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-text-secondary);">✅ Hỗ trợ sau bàn giao 3 tháng có SLA</li>
+        </ul>
+        <a href="/dich-vu/tu-van-setup-va-chuyen-giao-bo-ai-agents-cho-doanh-nghiep" class="btn btn--primary">Đăng ký tư vấn miễn phí</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEWSLETTER ────────────────────────────────────────────── -->
+<section class="section section--sm">
+  <div class="container">
+    <div class="newsletter-section reveal">
+      <p class="section-label" style="justify-content: center;">📬 Newsletter</p>
+      <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">Nhận cập nhật AI Agents mới nhất</h2>
+      <p style="color: var(--color-text-muted); font-size: var(--text-sm);">Thông báo khi có agent mới, case study và tips tối ưu AI cho doanh nghiệp</p>
+      <form class="newsletter-form" novalidate>
+        <input type="email" class="newsletter-input" placeholder="Email doanh nghiệp của bạn..." aria-label="Email đăng ký nhận tin" required />
+        <button type="submit" class="btn btn--primary">Đăng ký nhận tin</button>
+      </form>
+      <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3);">Không spam. Hủy đăng ký bất kỳ lúc nào.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────── -->
+<footer class="site-footer" role="contentinfo" aria-label="Thông tin trang">
+  <div class="sf-newsletter">
+    <div class="container sf-newsletter__inner">
+      <div class="sf-newsletter__copy">
+        <strong>Nhận cập nhật AI Agents mỗi tuần</strong>
+        <span>Xu hướng mới · Case study thực tế · Tips triển khai cho doanh nghiệp Việt Nam</span>
+      </div>
+      <form class="sf-newsletter__form" onsubmit="sfSubscribe(event)">
+        <input type="email" placeholder="Email của bạn..." required aria-label="Email đăng ký nhận tin">
+        <button type="submit">Đăng ký miễn phí</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sf-grid">
+      <div class="sf-brand">
+        <a href="/" class="sf-logo" aria-label="ClaudeMarketplace trang chủ">
+          <div class="sf-logo__icon">⚡</div>
+          <div class="sf-logo__text"><span>Claude</span>Marketplace</div>
+        </a>
+        <p class="sf-tagline">Marketplace AI Agents số 1 cho doanh nghiệp Việt Nam. Triển khai tự động hóa thông minh, tăng hiệu suất 3×.</p>
+        <div class="sf-contact-list">
+          <a href="mailto:hello@claudemarketplace.vn" class="sf-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hello@claudemarketplace.vn
+          </a>
+          <a href="tel:+84912345678" class="sf-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 13 19.79 19.79 0 0 1 1.93 4.36 2 2 0 0 1 3.9 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +84 (912) 345 678
+          </a>
+        </div>
+        <div class="sf-social">
+          <a href="#" class="sf-social__item" aria-label="Facebook" title="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="YouTube" title="YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="Zalo OA" title="Zalo">
+            <svg width="15" height="15" viewBox="0 0 50 50" fill="currentColor"><path d="M25 2C12.318 2 2 12.318 2 25c0 3.96 1.023 7.854 2.963 11.29L2.037 46.73a1 1 0 0 0 1.236 1.236l10.44-2.926A22.94 22.94 0 0 0 25 48c12.682 0 23-10.318 23-23S37.682 2 25 2zm-8 22h-4v-8h4v8zm6 0h-4v-12h4v12zm6 0h-4v-6h4v6z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="X / Twitter" title="X (Twitter)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">AI Agents</h3>
+        <nav aria-label="Danh mục AI Agents">
+          <a href="/ai-agents?dept=sales-marketing" class="sf-col__link">Sales &amp; Marketing</a>
+          <a href="/ai-agents?dept=phan-tich-kinh-doanh" class="sf-col__link">Phân tích Kinh doanh</a>
+          <a href="/ai-agents?dept=research-thi-truong" class="sf-col__link">Research Thị trường</a>
+          <a href="/ai-agents?dept=crm-cskh" class="sf-col__link">CRM &amp; CSKH</a>
+          <a href="/ai-agents?dept=content" class="sf-col__link">Content &amp; Truyền thông</a>
+          <a href="/ai-agents?dept=hr" class="sf-col__link">HR &amp; Tuyển dụng</a>
+          <a href="/ai-agents?dept=tai-chinh" class="sf-col__link">Tài chính</a>
+        </nav>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">Tin Tức</h3>
+        <nav aria-label="Danh mục tin tức">
+          <a href="/tin-tuc-ai-agents" class="sf-col__link">Tin Tức AI Agents</a>
+          <a href="/tin-tuc-claude-updates" class="sf-col__link">Claude Updates</a>
+          <a href="/tin-tuc-case-study-doanh-nghiep" class="sf-col__link">Case Study Doanh Nghiệp</a>
+          <a href="/tin-tuc-huong-dan-trien-khai-ai-agents" class="sf-col__link">Hướng Dẫn Triển Khai</a>
+          <a href="/tin-tuc-xu-huong-ai-va-tu-dong-hoa" class="sf-col__link">Xu Hướng AI &amp; Tự Động Hóa</a>
+        </nav>
+        <h3 class="sf-col__title" style="margin-top:1.5rem;">Dịch Vụ</h3>
+        <nav aria-label="Dịch vụ">
+          <a href="/dich-vu/dao-tao-trien-khai-ai-agents-cho-doanh-nghiep" class="sf-col__link">Đào Tạo AI Agents</a>
+          <a href="/dich-vu/tu-van-setup-va-chuyen-giao-bo-ai-agents-cho-doanh-nghiep" class="sf-col__link">Tư Vấn &amp; Setup</a>
+        </nav>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">Công Ty</h3>
+        <nav aria-label="Thông tin công ty">
+          <a href="/ve-chung-toi" class="sf-col__link">Về Chúng Tôi</a>
+          <a href="/lien-he" class="sf-col__link">Liên Hệ</a>
+          <a href="/chinh-sach-bao-mat" class="sf-col__link">Chính Sách Bảo Mật</a>
+          <a href="/dieu-khoan-su-dung" class="sf-col__link">Điều Khoản Sử Dụng</a>
+          <a href="/sitemap.xml" class="sf-col__link">Sitemap</a>
+        </nav>
+        <h3 class="sf-col__title" style="margin-top:1.5rem;">Hỗ Trợ</h3>
+        <nav aria-label="Hỗ trợ khách hàng">
+          <a href="/lien-he" class="sf-col__link">Tư vấn miễn phí</a>
+          <a href="mailto:hello@claudemarketplace.vn" class="sf-col__link">Gửi email</a>
+          <a href="tel:+84912345678" class="sf-col__link">Gọi ngay</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="sf-badges">
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9c0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Bảo mật dữ liệu ISO 27001
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        GDPR Compliant
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Uptime 99.9%
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        500+ Doanh nghiệp tin dùng
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Powered by Claude AI
+      </div>
+    </div>
+
+    <div class="sf-bottom">
+      <div class="sf-bottom__left">
+        <span>© 2025 ClaudeMarketplace</span>
+        <span class="sf-bottom__sep">·</span>
+        <span>🇻🇳 Làm tại Việt Nam</span>
+        <span class="sf-bottom__sep">·</span>
+        <span>Powered by Claude AI</span>
+      </div>
+      <div class="sf-bottom__right">
+        <a href="/chinh-sach-bao-mat" class="sf-bottom__link">Chính sách bảo mật</a>
+        <a href="/dieu-khoan-su-dung" class="sf-bottom__link">Điều khoản</a>
+        <a href="/sitemap.xml" class="sf-bottom__link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function sfSubscribe(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const input = e.target.querySelector('input');
+  btn.textContent = '✓ Đã đăng ký!';
+  btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
+  input.disabled = true; btn.disabled = true;
+}
+</script>
+
+<!-- ─── SCROLL TO TOP ─────────────────────────────────────────── -->
+<button class="scroll-top" aria-label="Về đầu trang" title="Về đầu trang">↑</button>
+
+<!-- ─── SCRIPTS ───────────────────────────────────────────────── -->
+<script src="/js/main.js" defer></script>
+<script>
+  // Init typing effect with correct target
+  document.addEventListener('DOMContentLoaded', () => {
+    const typingEl = document.getElementById('typing-target');
+    if (typingEl) initTypingEffect();
+  });
+</script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "claudemarketplace",
-  "outputDirectory": "frontend",
   "routes": [
     { "src": "/ai-agents/([^/]+)", "dest": "/agent-detail.html" },
     { "src": "/tin-tuc-([^/]+)/([^/]+)", "dest": "/news-detail.html" },
