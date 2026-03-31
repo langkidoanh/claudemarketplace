@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Không crawl các file kỹ thuật
+Disallow: /frontend/
+Disallow: /backend/
+Disallow: /.vercel/
+
+Sitemap: https://claudemarketplace.vn/sitemap.xml
+Sitemap: https://www.claudemarketplace.vn/sitemap.xml
