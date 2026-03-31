@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Khám phá 22+ AI Agents cho doanh nghiệp Việt Nam. Tự động hóa Sales, Marketing, CRM, Content, HR, Tài chính với AI Agents từ ClaudeMarketplace.">
+    <title>AI Agents Marketplace – Tất Cả AI Agents Cho Doanh Nghiệp | claudemarketplace.vn</title>
+    <link rel="canonical" href="https://claudemarketplace.vn/ai-agents">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="js/main.js" defer></script>
+
+    <style>
+    /* ── MARKETPLACE PAGE STYLES ────────────────────────────────── */
+
+    /* Hero */
+    .mp-hero {
+        padding: 72px 0 48px;
+        background: linear-gradient(180deg, rgba(37,99,235,.08) 0%, transparent 100%);
+        border-bottom: 1px solid rgba(255,255,255,.06);
+        text-align: center;
+    }
+    .mp-hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 800;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, #f1f5f9, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .mp-hero__sub {
+        color: var(--color-text-secondary);
+        font-size: 1.05rem;
+        max-width: 560px;
+        margin: 0 auto 28px;
+    }
+    .mp-hero__search-wrap {
+        max-width: 540px;
+        margin: 0 auto 24px;
+        position: relative;
+    }
+    .mp-hero__search-wrap input {
+        width: 100%;
+        padding: 14px 56px 14px 20px;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 12px;
+        color: var(--color-text-primary);
+        font-size: 1rem;
+        transition: border-color .2s, box-shadow .2s;
+    }
+    .mp-hero__search-wrap input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+    }
+    .mp-hero__search-wrap button {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        color: var(--color-text-secondary);
+    }
+    .mp-hero__stats {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .mp-hero__stat {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: .85rem;
+        color: var(--color-text-secondary);
+        background: rgba(255,255,255,.05);
+        padding: 6px 14px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,.08);
+    }
+    .mp-hero__stat span { color: var(--color-text-primary); font-weight: 600; }
+
+    /* Sticky Filter Bar */
+    .mp-filter-bar {
+        position: sticky;
+        top: 64px;
+        z-index: 90;
+        background: rgba(10,15,30,.92);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255,255,255,.06);
+        padding: 12px 0;
+    }
+    .mp-filter-bar__inner {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .mp-filter-tabs {
+        display: flex;
+        gap: 4px;
+        background: rgba(255,255,255,.04);
+        padding: 4px;
+        border-radius: 10px;
+    }
+    .mp-filter-tab {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px 14px;
+        border-radius: 7px;
+        font-size: .85rem;
+        color: var(--color-text-secondary);
+        transition: all .2s;
+        white-space: nowrap;
+    }
+    .mp-filter-tab.active, .mp-filter-tab:hover {
+        background: var(--color-primary);
+        color: #fff;
+    }
+    .mp-filter-bar__spacer { flex: 1; }
+    .mp-filter-bar__right { display: flex; gap: 8px; align-items: center; }
+    .mp-sort-select {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 8px;
+        color: var(--color-text-primary);
+        padding: 6px 12px;
+        font-size: .85rem;
+        cursor: pointer;
+    }
+    .mp-results-count {
+        font-size: .82rem;
+        color: var(--color-text-muted);
+        white-space: nowrap;
+    }
+
+    /* Layout */
+    .mp-layout {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        gap: 28px;
+        align-items: start;
+        padding: 32px 0 64px;
+    }
+
+    /* Sidebar */
+    .mp-sidebar {
+        position: sticky;
+        top: 116px;
+    }
+    .mp-sidebar__section {
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 14px;
+    }
+    .mp-sidebar__title {
+        font-size: .7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: var(--color-text-muted);
+        margin-bottom: 12px;
+    }
+    .mp-dept-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .mp-dept-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 9px 10px;
+        border-radius: 8px;
+        color: var(--color-text-secondary);
+        font-size: .88rem;
+        text-align: left;
+        transition: all .2s;
+    }
+    .mp-dept-btn:hover { background: rgba(255,255,255,.06); color: var(--color-text-primary); }
+    .mp-dept-btn.active { background: rgba(37,99,235,.18); color: var(--color-primary); }
+    .mp-dept-btn .dept-icon { font-size: 1rem; width: 20px; text-align: center; }
+    .mp-dept-btn .dept-name { flex: 1; }
+    .mp-dept-btn .dept-count {
+        font-size: .75rem;
+        background: rgba(255,255,255,.08);
+        border-radius: 10px;
+        padding: 2px 7px;
+        color: var(--color-text-muted);
+    }
+    .mp-dept-btn.active .dept-count { background: rgba(37,99,235,.25); color: var(--color-primary); }
+
+    /* Main */
+    .mp-main {}
+
+    /* Agent Cards Grid */
+    .mp-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 18px;
+    }
+
+    /* Redesigned Agent Card */
+    .ac {
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        transition: transform .2s, border-color .2s, box-shadow .2s;
+        position: relative;
+        overflow: hidden;
+    }
+    .ac::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+        opacity: 0;
+        transition: opacity .2s;
+    }
+    .ac:hover { transform: translateY(-3px); border-color: rgba(37,99,235,.3); box-shadow: 0 12px 32px rgba(0,0,0,.3); }
+    .ac:hover::before { opacity: 1; }
+    .ac.preorder { border-color: rgba(245,158,11,.15); }
+    .ac.preorder::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+
+    /* Card top row: icon + badge */
+    .ac__top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 14px;
+    }
+    .ac__icon-wrap {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: rgba(37,99,235,.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        flex-shrink: 0;
+    }
+    .ac.preorder .ac__icon-wrap { background: rgba(245,158,11,.1); }
+    .ac__badge-live {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: .7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        background: rgba(16,185,129,.12);
+        color: #10b981;
+        border: 1px solid rgba(16,185,129,.25);
+        padding: 4px 10px;
+        border-radius: 20px;
+    }
+    .ac__badge-live::before { content: '●'; font-size: .5rem; animation: pulse 1.5s infinite; }
+    .ac__badge-pre {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: .7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        background: rgba(245,158,11,.12);
+        color: #f59e0b;
+        border: 1px solid rgba(245,158,11,.25);
+        padding: 4px 10px;
+        border-radius: 20px;
+    }
+    .ac__badge-pre::before { content: '◎'; font-size: .6rem; }
+
+    /* Dept label */
+    .ac__dept {
+        font-size: .72rem;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        margin-bottom: 6px;
+    }
+
+    /* Title */
+    .ac__title {
+        font-size: .98rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    /* Description */
+    .ac__desc {
+        font-size: .83rem;
+        color: var(--color-text-secondary);
+        line-height: 1.5;
+        margin-bottom: 14px;
+        flex: 1;
+    }
+
+    /* Metrics row */
+    .ac__metrics {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 14px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .ac__metric {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: .78rem;
+        color: var(--color-text-muted);
+    }
+    .ac__metric strong { color: var(--color-text-secondary); }
+    .ac__metric .stars { color: #f59e0b; font-size: .75rem; }
+
+    /* Price row */
+    .ac__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .ac__price {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: var(--color-text-primary);
+    }
+    .ac__price-note {
+        font-size: .75rem;
+        color: #f59e0b;
+        font-weight: 600;
+    }
+    .ac__price-label { font-size: .7rem; color: var(--color-text-muted); }
+    .ac__cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--color-primary);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 14px;
+        font-size: .82rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background .2s, transform .1s;
+        white-space: nowrap;
+    }
+    .ac__cta:hover { background: #1d4ed8; transform: scale(1.02); }
+    .ac.preorder .ac__cta {
+        background: rgba(245,158,11,.15);
+        color: #f59e0b;
+        border: 1px solid rgba(245,158,11,.3);
+    }
+    .ac.preorder .ac__cta:hover { background: rgba(245,158,11,.25); }
+
+    /* Pre-order date tag */
+    .ac__preorder-date {
+        font-size: .72rem;
+        color: #f59e0b;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    /* Empty state */
+    .mp-empty {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 64px 20px;
+        color: var(--color-text-muted);
+    }
+    .mp-empty .mp-empty__icon { font-size: 3rem; margin-bottom: 12px; }
+    .mp-empty__title { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 6px; }
+
+    /* Pagination */
+    .mp-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .mp-page-btn {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 8px;
+        color: var(--color-text-secondary);
+        padding: 7px 14px;
+        font-size: .85rem;
+        cursor: pointer;
+        transition: all .2s;
+    }
+    .mp-page-btn:hover:not(:disabled) { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .mp-page-btn:disabled { opacity: .4; cursor: not-allowed; }
+    .mp-page-info { font-size: .85rem; color: var(--color-text-muted); padding: 0 8px; }
+
+    @media (max-width: 900px) {
+        .mp-layout { grid-template-columns: 1fr; }
+        .mp-sidebar { position: static; }
+        .mp-dept-list { flex-direction: row; flex-wrap: wrap; }
+        .mp-dept-btn { flex: 0 0 auto; }
+    }
+    @media (max-width: 600px) {
+        .mp-grid { grid-template-columns: 1fr; }
+        .mp-filter-bar__inner { gap: 8px; }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav__content">
+                <a href="/" class="nav__logo">⚡ ClaudeMarketplace</a>
+                <ul class="nav__links">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="/ai-agents" class="nav__link--active">AI Agents</a></li>
+                    <li><a href="/tin-tuc-ai-agents">Tin tức</a></li>
+                    <li><a href="/dich-vu">Dịch vụ</a></li>
+                    <li><a href="/#about">Về chúng tôi</a></li>
+                    <li><a href="/lien-he">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="mp-hero" aria-labelledby="mp-h1">
+        <div class="container">
+            <h1 id="mp-h1">AI Agents Marketplace</h1>
+            <p class="mp-hero__sub">Khám phá và triển khai AI Agents tự động hóa toàn bộ quy trình kinh doanh của bạn — từ Sales đến Tài chính.</p>
+
+            <div class="mp-hero__search-wrap">
+                <input
+                    type="search"
+                    id="global-search"
+                    placeholder="Tìm kiếm AI Agent (ví dụ: Sales, CRM, Content...)"
+                    aria-label="Tìm kiếm AI Agent"
+                >
+                <button aria-label="Tìm kiếm">🔍</button>
+            </div>
+
+            <div class="mp-hero__stats">
+                <div class="mp-hero__stat">🤖 <span>22</span> AI Agents</div>
+                <div class="mp-hero__stat">✅ <span>15</span> Đang hoạt động</div>
+                <div class="mp-hero__stat">🔜 <span>7</span> Sắp ra mắt</div>
+                <div class="mp-hero__stat">🏢 <span>500+</span> Doanh nghiệp</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Filter Bar -->
+    <div class="mp-filter-bar" role="toolbar" aria-label="Bộ lọc">
+        <div class="container">
+            <div class="mp-filter-bar__inner">
+                <div class="mp-filter-tabs" role="group" aria-label="Lọc theo trạng thái">
+                    <button class="mp-filter-tab active" data-filter="all">Tất cả</button>
+                    <button class="mp-filter-tab" data-filter="live">Đang hoạt động</button>
+                    <button class="mp-filter-tab" data-filter="preorder">Sắp ra mắt</button>
+                </div>
+                <div class="mp-filter-bar__spacer"></div>
+                <div class="mp-filter-bar__right">
+                    <p class="mp-results-count" role="status" aria-live="polite">
+                        Hiển thị <strong id="count-shown">22</strong> / <strong id="count-total">22</strong> agents
+                    </p>
+                    <select class="mp-sort-select" id="sort-select" aria-label="Sắp xếp">
+                        <option value="popular">Phổ biến nhất</option>
+                        <option value="rating">Đánh giá cao nhất</option>
+                        <option value="newest">Mới nhất</option>
+                        <option value="users">Người dùng nhiều nhất</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="container">
+        <div class="mp-layout">
+
+            <!-- Sidebar -->
+            <aside class="mp-sidebar" aria-label="Lọc theo danh mục">
+
+                <div class="mp-sidebar__section">
+                    <p class="mp-sidebar__title">Phòng ban</p>
+                    <ul class="mp-dept-list" role="list">
+                        <li>
+                            <button class="mp-dept-btn active" data-dept="all">
+                                <span class="dept-icon">⚡</span>
+                                <span class="dept-name">Tất cả</span>
+                                <span class="dept-count">22</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="mp-dept-btn" data-dept="sales">
+                                <span class="dept-icon">🎯</span>
+                                <span class="dept-name">Sales & Marketing</span>
+                                <span class="dept-count">5</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="mp-dept-btn" data-dept="analytics">
+                                <span class="dept-icon">📊</span>
+                                <span class="dept-name">Phân tích Kinh doanh</span>
+                                <span class="dept-count">3</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="mp-dept-btn" data-dept="research">
+                                <span class="dept-icon">🔬</span>
+                                <span class="dept-name">Research Thị trường</span>
+                                <span class="dept-count">3</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="mp-dept-btn" data-dept="crm">
+                                <span class="dept-icon">🎧</span>
+                                <span class="dept-name">CRM & CSKH</span>
+                                <span class="dept-count">4</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="mp-dept-btn" data-dept="content">
+                                <span class="dept-icon">✍️</span>
+                                <span class="dept-name">Content</span>
+                                <span class="dept-count">3</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="mp-dept-btn" data-dept="hr">
+                                <span class="dept-icon">👔</span>
+                                <span class="dept-name">HR</span>
+                                <span class="dept-count">2</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="mp-dept-btn" data-dept="finance">
+                                <span class="dept-icon">💰</span>
+                                <span class="dept-name">Tài chính & Vận hành</span>
+                                <span class="dept-count">3</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mp-sidebar__section">
+                    <p class="mp-sidebar__title">Giá</p>
+                    <div style="font-size: .84rem; color: var(--color-text-secondary); line-height: 1.7;">
+                        <div>✅ 5.000.000đ / tháng</div>
+                        <div style="color: var(--color-text-muted); font-size: .76rem; margin-top: 4px;">Tất cả agents cùng mức giá</div>
+                        <div style="color: #f59e0b; font-size: .76rem; margin-top: 4px;">🔖 Pre-order: -20%</div>
+                    </div>
+                </div>
+
+                <div class="mp-sidebar__section">
+                    <p class="mp-sidebar__title">Cần tư vấn?</p>
+                    <p style="font-size: .8rem; color: var(--color-text-muted); margin-bottom: 12px; line-height: 1.5;">Chuyên gia sẽ giúp bạn chọn agents phù hợp nhất.</p>
+                    <a href="/lien-he" class="btn btn--outline btn--small" style="width: 100%; text-align: center; display: block;">💬 Liên hệ tư vấn</a>
+                </div>
+
+            </aside>
+
+            <!-- Main Content -->
+            <main>
+                <!-- Agent Grid -->
+                <div class="mp-grid" role="list" id="agent-grid">
+
+                    <!-- ══ SALES & MARKETING (5) ══ -->
+                    <article class="ac" data-dept="sales" data-name="Agent Tư Vấn & Chốt Sale 24/7" data-status="live" data-price="5000000" data-rating="4.9" data-users="128" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🎯</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Sales & Marketing</p>
+                        <h3 class="ac__title">Agent Tư Vấn & Chốt Sale 24/7</h3>
+                        <p class="ac__desc">Tự động tư vấn và chốt đơn hàng qua chat, Zalo, Facebook Messenger — không cần nhân viên trực.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric">
+                                <span class="stars">★★★★★</span>
+                                <strong>4.9</strong>
+                            </div>
+                            <div class="ac__metric">👥 <strong>128</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-tu-van-chot-sale-24-7" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="sales" data-name="Agent Tạo Content Marketing Đa Kênh Tự Động" data-status="live" data-price="5000000" data-rating="4.8" data-users="94" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">📱</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Sales & Marketing</p>
+                        <h3 class="ac__title">Agent Tạo Content Marketing Đa Kênh</h3>
+                        <p class="ac__desc">Tạo content tự động cho Facebook, Zalo, Email, TikTok theo đúng giọng điệu thương hiệu.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.8</strong></div>
+                            <div class="ac__metric">👥 <strong>94</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-tao-content-marketing-da-kenh-tu-dong" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="sales" data-name="Agent Phân Tích Ads & Campaign Marketing" data-status="live" data-price="5000000" data-rating="4.7" data-users="76" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">📊</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Sales & Marketing</p>
+                        <h3 class="ac__title">Agent Phân Tích Ads & Campaign Marketing</h3>
+                        <p class="ac__desc">Phân tích hiệu suất quảng cáo, tối ưu ngân sách và đề xuất chiến lược ads tự động.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.7</strong></div>
+                            <div class="ac__metric">👥 <strong>76</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-phan-tich-ads-campaign-marketing" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="sales" data-name="Agent Email & Zalo Marketing Automation" data-status="live" data-price="5000000" data-rating="4.8" data-users="65" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">💬</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Sales & Marketing</p>
+                        <h3 class="ac__title">Agent Email & Zalo Marketing Automation</h3>
+                        <p class="ac__desc">Tự động hóa chuỗi email và Zalo campaigns theo hành vi khách hàng, tăng tỷ lệ mở và chuyển đổi.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.8</strong></div>
+                            <div class="ac__metric">👥 <strong>65</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-email-zalo-marketing-automation" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac preorder" data-dept="sales" data-name="Agent Social Listening & Brand Monitor Tự Động" data-status="preorder" data-price="4000000" data-rating="0" data-users="31" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">👁️</div>
+                            <span class="ac__badge-pre">Sắp ra mắt</span>
+                        </div>
+                        <p class="ac__dept">Sales & Marketing</p>
+                        <h3 class="ac__title">Agent Social Listening & Brand Monitor</h3>
+                        <p class="ac__desc">Giám sát thương hiệu trên mạng xã hội, phân tích sentiment và cảnh báo khủng hoảng tự động.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric">
+                                <span class="ac__preorder-date">📅 Dự kiến Q2/2025</span>
+                            </div>
+                            <div class="ac__metric">👥 <strong>31</strong> đặt trước</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">4.000.000đ</div>
+                                <div class="ac__price-note">Pre-order -20%</div>
+                            </div>
+                            <button class="ac__cta" onclick="handlePreorder(this, 'agent-social-listening-brand-monitor')">Đặt trước</button>
+                        </div>
+                    </article>
+
+                    <!-- ══ PHÂN TÍCH KINH DOANH (3) ══ -->
+                    <article class="ac" data-dept="analytics" data-name="Agent Phân Tích Kết Quả Kinh Doanh Tự Động" data-status="live" data-price="5000000" data-rating="4.8" data-users="112" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">📈</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Phân tích Kinh doanh</p>
+                        <h3 class="ac__title">Agent Phân Tích Kết Quả Kinh Doanh Tự Động</h3>
+                        <p class="ac__desc">Phân tích doanh số, lợi nhuận, margin tự động mỗi ngày — gửi báo cáo tóm tắt cho ban lãnh đạo.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.8</strong></div>
+                            <div class="ac__metric">👥 <strong>112</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-phan-tich-ket-qua-kinh-doanh-tu-dong" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="analytics" data-name="Agent Dự Báo Doanh Thu Bằng AI" data-status="live" data-price="5000000" data-rating="4.7" data-users="58" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🔮</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Phân tích Kinh doanh</p>
+                        <h3 class="ac__title">Agent Dự Báo Doanh Thu Bằng AI</h3>
+                        <p class="ac__desc">Dự báo doanh thu tháng kế tiếp dựa trên dữ liệu lịch sử, trend thị trường và mùa vụ.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.7</strong></div>
+                            <div class="ac__metric">👥 <strong>58</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-du-bao-doanh-thu-bang-ai" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac preorder" data-dept="analytics" data-name="Agent BI Dashboard Tự Động Cho Doanh Nghiệp" data-status="preorder" data-price="4000000" data-rating="0" data-users="47" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🎛️</div>
+                            <span class="ac__badge-pre">Sắp ra mắt</span>
+                        </div>
+                        <p class="ac__dept">Phân tích Kinh doanh</p>
+                        <h3 class="ac__title">Agent BI Dashboard Tự Động</h3>
+                        <p class="ac__desc">Tạo BI dashboard tự động từ dữ liệu nhiều nguồn, trực quan hóa KPI real-time.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="ac__preorder-date">📅 Dự kiến Q2/2025</span></div>
+                            <div class="ac__metric">👥 <strong>47</strong> đặt trước</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">4.000.000đ</div>
+                                <div class="ac__price-note">Pre-order -20%</div>
+                            </div>
+                            <button class="ac__cta" onclick="handlePreorder(this, 'agent-bi-dashboard')">Đặt trước</button>
+                        </div>
+                    </article>
+
+                    <!-- ══ RESEARCH THỊ TRƯỜNG (3) ══ -->
+                    <article class="ac" data-dept="research" data-name="Agent Research Thị Trường Tự Động" data-status="live" data-price="5000000" data-rating="4.8" data-users="87" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🔬</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Research Thị trường</p>
+                        <h3 class="ac__title">Agent Research Thị Trường Tự Động</h3>
+                        <p class="ac__desc">Nghiên cứu thị trường, xu hướng ngành và cơ hội kinh doanh mới — báo cáo chuyên sâu tự động.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.8</strong></div>
+                            <div class="ac__metric">👥 <strong>87</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-research-thi-truong-tu-dong" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="research" data-name="Agent Phân Tích Đối Thủ Cạnh Tranh Realtime" data-status="live" data-price="5000000" data-rating="4.7" data-users="71" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">⚔️</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Research Thị trường</p>
+                        <h3 class="ac__title">Agent Phân Tích Đối Thủ Cạnh Tranh Realtime</h3>
+                        <p class="ac__desc">Giám sát chiến lược, giá cả, content của đối thủ realtime — nhận cảnh báo thay đổi ngay lập tức.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.7</strong></div>
+                            <div class="ac__metric">👥 <strong>71</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-phan-tich-doi-thu-canh-tranh-realtime" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac preorder" data-dept="research" data-name="Agent Nghiên Cứu Hành Vi Khách Hàng Tự Động" data-status="preorder" data-price="4000000" data-rating="0" data-users="22" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🧠</div>
+                            <span class="ac__badge-pre">Sắp ra mắt</span>
+                        </div>
+                        <p class="ac__dept">Research Thị trường</p>
+                        <h3 class="ac__title">Agent Nghiên Cứu Hành Vi Khách Hàng</h3>
+                        <p class="ac__desc">Phân tích hành vi, sở thích và nhu cầu khách hàng từ nhiều điểm dữ liệu, đề xuất cải tiến UX.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="ac__preorder-date">📅 Dự kiến Q3/2025</span></div>
+                            <div class="ac__metric">👥 <strong>22</strong> đặt trước</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">4.000.000đ</div>
+                                <div class="ac__price-note">Pre-order -20%</div>
+                            </div>
+                            <button class="ac__cta" onclick="handlePreorder(this, 'agent-nghien-cuu-hanh-vi-khach-hang')">Đặt trước</button>
+                        </div>
+                    </article>
+
+                    <!-- ══ CRM & CSKH (4) ══ -->
+                    <article class="ac" data-dept="crm" data-name="Agent CRM Tự Động Hóa Quy Trình Khách Hàng" data-status="live" data-price="5000000" data-rating="4.7" data-users="93" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">👨‍💼</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">CRM & CSKH</p>
+                        <h3 class="ac__title">Agent CRM Tự Động Hóa Quy Trình Khách Hàng</h3>
+                        <p class="ac__desc">Quản lý toàn bộ lifecycle khách hàng, tự động hóa follow-up, nhắc nhở và báo cáo CRM.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.7</strong></div>
+                            <div class="ac__metric">👥 <strong>93</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-crm-tu-dong-hoa-quy-trinh-khach-hang" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="crm" data-name="Agent Chăm Sóc & Giữ Chân Khách Hàng Cũ" data-status="live" data-price="5000000" data-rating="4.6" data-users="54" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">❤️</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">CRM & CSKH</p>
+                        <h3 class="ac__title">Agent Chăm Sóc & Giữ Chân Khách Hàng Cũ</h3>
+                        <p class="ac__desc">Chăm sóc khách hàng hiện tại, tăng retention rate và xây dựng loyalty program tự động.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.6</strong></div>
+                            <div class="ac__metric">👥 <strong>54</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-cham-soc-giu-chan-khach-hang-cu" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="crm" data-name="Agent CSKH Thông Minh 24/7" data-status="live" data-price="5000000" data-rating="4.8" data-users="108" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🎧</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">CRM & CSKH</p>
+                        <h3 class="ac__title">Agent CSKH Thông Minh 24/7</h3>
+                        <p class="ac__desc">Hỗ trợ khách hàng thông minh 24/7, trả lời tự động, escalate vấn đề phức tạp đúng lúc.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.8</strong></div>
+                            <div class="ac__metric">👥 <strong>108</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-cskh-thong-minh-24-7" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac preorder" data-dept="crm" data-name="Agent Xử Lý Khiếu Nại Khách Hàng Tự Động" data-status="preorder" data-price="4000000" data-rating="0" data-users="19" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">⚠️</div>
+                            <span class="ac__badge-pre">Sắp ra mắt</span>
+                        </div>
+                        <p class="ac__dept">CRM & CSKH</p>
+                        <h3 class="ac__title">Agent Xử Lý Khiếu Nại Khách Hàng Tự Động</h3>
+                        <p class="ac__desc">Tự động tiếp nhận, phân loại và xử lý khiếu nại, đảm bảo SLA và ghi nhận vào hệ thống.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="ac__preorder-date">📅 Dự kiến Q2/2025</span></div>
+                            <div class="ac__metric">👥 <strong>19</strong> đặt trước</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">4.000.000đ</div>
+                                <div class="ac__price-note">Pre-order -20%</div>
+                            </div>
+                            <button class="ac__cta" onclick="handlePreorder(this, 'agent-xu-ly-khieu-nai')">Đặt trước</button>
+                        </div>
+                    </article>
+
+                    <!-- ══ CONTENT (3) ══ -->
+                    <article class="ac" data-dept="content" data-name="Agent Viết Content SEO Tự Động" data-status="live" data-price="5000000" data-rating="4.9" data-users="145" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">✍️</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Content</p>
+                        <h3 class="ac__title">Agent Viết Content SEO Tự Động</h3>
+                        <p class="ac__desc">Viết bài blog, landing page và content SEO tối ưu keyword — publish-ready, không cần chỉnh sửa nhiều.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.9</strong></div>
+                            <div class="ac__metric">👥 <strong>145</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-viet-content-seo-tu-dong" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="content" data-name="Agent Social Media Manager AI" data-status="live" data-price="5000000" data-rating="4.7" data-users="89" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🌟</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Content</p>
+                        <h3 class="ac__title">Agent Social Media Manager AI</h3>
+                        <p class="ac__desc">Lên lịch post, tạo caption, tương tác comment và báo cáo performance trên mọi kênh social.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.7</strong></div>
+                            <div class="ac__metric">👥 <strong>89</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-social-media-manager-ai" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac preorder" data-dept="content" data-name="Agent Sản Xuất Script Video & Podcast Tự Động" data-status="preorder" data-price="4000000" data-rating="0" data-users="28" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🎬</div>
+                            <span class="ac__badge-pre">Sắp ra mắt</span>
+                        </div>
+                        <p class="ac__dept">Content</p>
+                        <h3 class="ac__title">Agent Sản Xuất Script Video & Podcast</h3>
+                        <p class="ac__desc">Tự động tạo script video YouTube, TikTok và nội dung podcast từ brief đơn giản.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="ac__preorder-date">📅 Dự kiến Q3/2025</span></div>
+                            <div class="ac__metric">👥 <strong>28</strong> đặt trước</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">4.000.000đ</div>
+                                <div class="ac__price-note">Pre-order -20%</div>
+                            </div>
+                            <button class="ac__cta" onclick="handlePreorder(this, 'agent-san-xuat-script-video')">Đặt trước</button>
+                        </div>
+                    </article>
+
+                    <!-- ══ HR (2) ══ -->
+                    <article class="ac" data-dept="hr" data-name="Agent Sàng Lọc CV & Tuyển Dụng Tự Động" data-status="live" data-price="5000000" data-rating="4.6" data-users="67" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">👔</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">HR</p>
+                        <h3 class="ac__title">Agent Sàng Lọc CV & Tuyển Dụng Tự Động</h3>
+                        <p class="ac__desc">Sàng lọc hàng trăm CV, đánh giá phù hợp với JD và xếp hạng ứng viên tự động.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.6</strong></div>
+                            <div class="ac__metric">👥 <strong>67</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-sang-loc-cv-tuyen-dung-tu-dong" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac preorder" data-dept="hr" data-name="Agent Onboarding Nhân Viên Mới Tự Động" data-status="preorder" data-price="4000000" data-rating="0" data-users="15" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🚀</div>
+                            <span class="ac__badge-pre">Sắp ra mắt</span>
+                        </div>
+                        <p class="ac__dept">HR</p>
+                        <h3 class="ac__title">Agent Onboarding Nhân Viên Mới Tự Động</h3>
+                        <p class="ac__desc">Tự động hóa toàn bộ quy trình onboarding: tài liệu, đào tạo, quiz, follow-up 30-60-90 ngày.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="ac__preorder-date">📅 Dự kiến Q2/2025</span></div>
+                            <div class="ac__metric">👥 <strong>15</strong> đặt trước</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">4.000.000đ</div>
+                                <div class="ac__price-note">Pre-order -20%</div>
+                            </div>
+                            <button class="ac__cta" onclick="handlePreorder(this, 'agent-onboarding-nhan-vien-moi')">Đặt trước</button>
+                        </div>
+                    </article>
+
+                    <!-- ══ TÀI CHÍNH & VẬN HÀNH (3) ══ -->
+                    <article class="ac" data-dept="finance" data-name="Agent Báo Cáo Tài Chính Tự Động" data-status="live" data-price="5000000" data-rating="4.7" data-users="79" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">💰</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Tài chính & Vận hành</p>
+                        <h3 class="ac__title">Agent Báo Cáo Tài Chính Tự Động</h3>
+                        <p class="ac__desc">Tổng hợp và tạo báo cáo tài chính, P&L, cash flow tự động — sẵn sàng gửi lãnh đạo mỗi tháng.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.7</strong></div>
+                            <div class="ac__metric">👥 <strong>79</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-bao-cao-tai-chinh-tu-dong" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac" data-dept="finance" data-name="Agent Quản Lý Dự Án & Timeline Thông Minh" data-status="live" data-price="5000000" data-rating="4.5" data-users="43" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">📋</div>
+                            <span class="ac__badge-live">Live</span>
+                        </div>
+                        <p class="ac__dept">Tài chính & Vận hành</p>
+                        <h3 class="ac__title">Agent Quản Lý Dự Án & Timeline Thông Minh</h3>
+                        <p class="ac__desc">Quản lý tiến độ dự án, phân bổ nguồn lực và cảnh báo rủi ro timeline tự động.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="stars">★★★★★</span><strong>4.5</strong></div>
+                            <div class="ac__metric">👥 <strong>43</strong> DN đang dùng</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">5.000.000đ</div>
+                                <div class="ac__price-label">/tháng</div>
+                            </div>
+                            <a href="/ai-agents/agent-quan-ly-du-an-timeline-thong-minh" class="ac__cta">Xem chi tiết →</a>
+                        </div>
+                    </article>
+
+                    <article class="ac preorder" data-dept="finance" data-name="Agent Tổng Hợp Báo Cáo Vận Hành Doanh Nghiệp" data-status="preorder" data-price="4000000" data-rating="0" data-users="12" role="listitem">
+                        <div class="ac__top">
+                            <div class="ac__icon-wrap">🔗</div>
+                            <span class="ac__badge-pre">Sắp ra mắt</span>
+                        </div>
+                        <p class="ac__dept">Tài chính & Vận hành</p>
+                        <h3 class="ac__title">Agent Tổng Hợp Báo Cáo Vận Hành Doanh Nghiệp</h3>
+                        <p class="ac__desc">Tổng hợp báo cáo vận hành từ nhiều phòng ban, cảnh báo KPI lệch chuẩn tự động.</p>
+                        <div class="ac__metrics">
+                            <div class="ac__metric"><span class="ac__preorder-date">📅 Dự kiến Q3/2025</span></div>
+                            <div class="ac__metric">👥 <strong>12</strong> đặt trước</div>
+                        </div>
+                        <div class="ac__bottom">
+                            <div>
+                                <div class="ac__price">4.000.000đ</div>
+                                <div class="ac__price-note">Pre-order -20%</div>
+                            </div>
+                            <button class="ac__cta" onclick="handlePreorder(this, 'agent-tong-hop-bao-cao-van-hanh')">Đặt trước</button>
+                        </div>
+                    </article>
+
+                </div><!-- end mp-grid -->
+
+                <!-- Pagination -->
+                <div class="mp-pagination" role="navigation" aria-label="Phân trang">
+                    <button class="mp-page-btn" disabled>← Trước</button>
+                    <span class="mp-page-info">Trang 1 / 1</span>
+                    <button class="mp-page-btn" disabled>Sau →</button>
+                </div>
+
+            </main>
+        </div><!-- end mp-layout -->
+    </div><!-- end container -->
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo" aria-label="Thông tin trang">
+  <div class="sf-newsletter">
+    <div class="container sf-newsletter__inner">
+      <div class="sf-newsletter__copy">
+        <strong>Nhận cập nhật AI Agents mỗi tuần</strong>
+        <span>Xu hướng mới · Case study thực tế · Tips triển khai cho doanh nghiệp Việt Nam</span>
+      </div>
+      <form class="sf-newsletter__form" onsubmit="sfSubscribe(event)">
+        <input type="email" placeholder="Email của bạn..." required aria-label="Email đăng ký nhận tin">
+        <button type="submit">Đăng ký miễn phí</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sf-grid">
+      <div class="sf-brand">
+        <a href="/" class="sf-logo" aria-label="ClaudeMarketplace trang chủ">
+          <div class="sf-logo__icon">⚡</div>
+          <div class="sf-logo__text"><span>Claude</span>Marketplace</div>
+        </a>
+        <p class="sf-tagline">Marketplace AI Agents số 1 cho doanh nghiệp Việt Nam. Triển khai tự động hóa thông minh, tăng hiệu suất 3×.</p>
+        <div class="sf-contact-list">
+          <a href="mailto:hello@claudemarketplace.vn" class="sf-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hello@claudemarketplace.vn
+          </a>
+          <a href="tel:+84912345678" class="sf-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 13 19.79 19.79 0 0 1 1.93 4.36 2 2 0 0 1 3.9 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +84 (912) 345 678
+          </a>
+        </div>
+        <div class="sf-social">
+          <a href="#" class="sf-social__item" aria-label="Facebook" title="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="YouTube" title="YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="Zalo OA" title="Zalo">
+            <svg width="15" height="15" viewBox="0 0 50 50" fill="currentColor"><path d="M25 2C12.318 2 2 12.318 2 25c0 3.96 1.023 7.854 2.963 11.29L2.037 46.73a1 1 0 0 0 1.236 1.236l10.44-2.926A22.94 22.94 0 0 0 25 48c12.682 0 23-10.318 23-23S37.682 2 25 2zm-8 22h-4v-8h4v8zm6 0h-4v-12h4v12zm6 0h-4v-6h4v6z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="X / Twitter" title="X (Twitter)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">AI Agents</h3>
+        <nav aria-label="Danh mục AI Agents">
+          <a href="/ai-agents?dept=sales-marketing" class="sf-col__link">Sales &amp; Marketing</a>
+          <a href="/ai-agents?dept=phan-tich-kinh-doanh" class="sf-col__link">Phân tích Kinh doanh</a>
+          <a href="/ai-agents?dept=research-thi-truong" class="sf-col__link">Research Thị trường</a>
+          <a href="/ai-agents?dept=crm-cskh" class="sf-col__link">CRM &amp; CSKH</a>
+          <a href="/ai-agents?dept=content" class="sf-col__link">Content &amp; Truyền thông</a>
+          <a href="/ai-agents?dept=hr" class="sf-col__link">HR &amp; Tuyển dụng</a>
+          <a href="/ai-agents?dept=tai-chinh" class="sf-col__link">Tài chính</a>
+        </nav>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">Tin Tức</h3>
+        <nav aria-label="Danh mục tin tức">
+          <a href="/tin-tuc-ai-agents" class="sf-col__link">Tin Tức AI Agents</a>
+          <a href="/tin-tuc-claude-updates" class="sf-col__link">Claude Updates</a>
+          <a href="/tin-tuc-case-study-doanh-nghiep" class="sf-col__link">Case Study Doanh Nghiệp</a>
+          <a href="/tin-tuc-huong-dan-trien-khai-ai-agents" class="sf-col__link">Hướng Dẫn Triển Khai</a>
+          <a href="/tin-tuc-xu-huong-ai-va-tu-dong-hoa" class="sf-col__link">Xu Hướng AI &amp; Tự Động Hóa</a>
+        </nav>
+        <h3 class="sf-col__title" style="margin-top:1.5rem;">Dịch Vụ</h3>
+        <nav aria-label="Dịch vụ">
+          <a href="/dich-vu/dao-tao-trien-khai-ai-agents-cho-doanh-nghiep" class="sf-col__link">Đào Tạo AI Agents</a>
+          <a href="/dich-vu/tu-van-setup-va-chuyen-giao-bo-ai-agents-cho-doanh-nghiep" class="sf-col__link">Tư Vấn &amp; Setup</a>
+        </nav>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">Công Ty</h3>
+        <nav aria-label="Thông tin công ty">
+          <a href="/#about" class="sf-col__link">Về Chúng Tôi</a>
+          <a href="/lien-he" class="sf-col__link">Liên Hệ</a>
+          <a href="/chinh-sach-bao-mat" class="sf-col__link">Chính Sách Bảo Mật</a>
+          <a href="/dieu-khoan-su-dung" class="sf-col__link">Điều Khoản Sử Dụng</a>
+          <a href="/sitemap.xml" class="sf-col__link">Sitemap</a>
+        </nav>
+        <h3 class="sf-col__title" style="margin-top:1.5rem;">Hỗ Trợ</h3>
+        <nav aria-label="Hỗ trợ khách hàng">
+          <a href="/lien-he" class="sf-col__link">Tư vấn miễn phí</a>
+          <a href="mailto:hello@claudemarketplace.vn" class="sf-col__link">Gửi email</a>
+          <a href="tel:+84912345678" class="sf-col__link">Gọi ngay</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="sf-badges">
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9c0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Bảo mật dữ liệu ISO 27001
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        GDPR Compliant
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Uptime 99.9%
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        500+ Doanh nghiệp tin dùng
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Powered by Claude AI
+      </div>
+    </div>
+
+    <div class="sf-bottom">
+      <div class="sf-bottom__left">
+        <span>© 2025 ClaudeMarketplace</span>
+        <span class="sf-bottom__sep">·</span>
+        <span>🇻🇳 Làm tại Việt Nam</span>
+        <span class="sf-bottom__sep">·</span>
+        <span>Powered by Claude AI</span>
+      </div>
+      <div class="sf-bottom__right">
+        <a href="/chinh-sach-bao-mat" class="sf-bottom__link">Chính sách bảo mật</a>
+        <a href="/dieu-khoan-su-dung" class="sf-bottom__link">Điều khoản</a>
+        <a href="/sitemap.xml" class="sf-bottom__link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function sfSubscribe(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const input = e.target.querySelector('input');
+  btn.textContent = '✓ Đã đăng ký!';
+  btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
+  input.disabled = true; btn.disabled = true;
+}
+</script>
+
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Về đầu trang" title="Về đầu trang">↑</button>
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "AI Agents Marketplace – claudemarketplace.vn",
+        "description": "Tất cả AI Agents cho doanh nghiệp Việt Nam",
+        "numberOfItems": 22,
+        "url": "https://claudemarketplace.vn/ai-agents",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Agent Tư Vấn & Chốt Sale 24/7", "url": "https://claudemarketplace.vn/ai-agents/agent-tu-van-chot-sale-24-7" },
+            { "@type": "ListItem", "position": 2, "name": "Agent Viết Content SEO Tự Động", "url": "https://claudemarketplace.vn/ai-agents/agent-viet-content-seo-tu-dong" },
+            { "@type": "ListItem", "position": 3, "name": "Agent CSKH Thông Minh 24/7", "url": "https://claudemarketplace.vn/ai-agents/agent-cskh-thong-minh-24-7" }
+        ]
+    }
+    </script>
+
+    <script>
+    /* ── Marketplace page interactions ── */
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const grid   = document.getElementById('agent-grid');
+        const cards  = () => [...grid.querySelectorAll('.ac')];
+        const shown  = document.getElementById('count-shown');
+        const total  = document.getElementById('count-total');
+
+        function updateCount() {
+            const visible = cards().filter(c => c.style.display !== 'none').length;
+            if (shown) shown.textContent = visible;
+            if (total) total.textContent = cards().length;
+        }
+
+        // Department filter
+        document.querySelectorAll('.mp-dept-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.mp-dept-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const dept = btn.dataset.dept;
+                cards().forEach(c => {
+                    c.style.display = (dept === 'all' || c.dataset.dept === dept) ? '' : 'none';
+                });
+                updateCount();
+            });
+        });
+
+        // Status filter tabs
+        document.querySelectorAll('.mp-filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.mp-filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const f = tab.dataset.filter;
+                cards().forEach(c => {
+                    c.style.display = (f === 'all' || c.dataset.status === f) ? '' : 'none';
+                });
+                updateCount();
+            });
+        });
+
+        // Search
+        const searchInput = document.getElementById('global-search');
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                const q = searchInput.value.toLowerCase().trim();
+                cards().forEach(c => {
+                    const name = (c.dataset.name || '').toLowerCase();
+                    const dept = (c.dataset.dept || '').toLowerCase();
+                    c.style.display = (!q || name.includes(q) || dept.includes(q)) ? '' : 'none';
+                });
+                updateCount();
+            });
+        }
+
+        // Sort
+        const sortSelect = document.getElementById('sort-select');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', () => {
+                const val = sortSelect.value;
+                const sorted = cards().sort((a, b) => {
+                    if (val === 'rating')  return parseFloat(b.dataset.rating)  - parseFloat(a.dataset.rating);
+                    if (val === 'users')   return parseInt(b.dataset.users)     - parseInt(a.dataset.users);
+                    if (val === 'popular') return parseInt(b.dataset.users)     - parseInt(a.dataset.users);
+                    return 0;
+                });
+                sorted.forEach(c => grid.appendChild(c));
+            });
+        }
+
+        updateCount();
+    });
+
+    function handlePreorder(btn, slug) {
+        btn.textContent = '✓ Đã đặt trước!';
+        btn.style.background = 'rgba(16,185,129,.2)';
+        btn.style.color = '#10b981';
+        btn.disabled = true;
+        if (window.CM && window.CM.showToast) {
+            window.CM.showToast('Đặt trước thành công! Chúng tôi sẽ liên hệ bạn sớm.', 'success');
+        }
+    }
+    </script>
+</body>
+</html>

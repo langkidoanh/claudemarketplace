@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Liên hệ ClaudeMarketplace để tư vấn miễn phí về AI Agents. Hỗ trợ từ 9AM-9PM, reply trong 4 giờ làm việc.">
+    <title>Liên Hệ – Tư Vấn AI Agents Miễn Phí Cho Doanh Nghiệp | claudemarketplace.vn</title>
+    <link rel="canonical" href="https://claudemarketplace.vn/lien-he">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="js/main.js" defer></script>
+
+    <style>
+    /* ── CONTACT PAGE STYLES ────────────────────────────────────── */
+
+    /* Hero */
+    .ct-hero {
+        padding: 64px 0 48px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,.06);
+        background: linear-gradient(180deg, rgba(37,99,235,.06) 0%, transparent 100%);
+    }
+    .ct-hero__eyebrow {
+        display: inline-block;
+        font-size: .72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        color: var(--color-primary);
+        margin-bottom: 12px;
+    }
+    .ct-hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 800;
+        background: linear-gradient(135deg, #f1f5f9, #94a3b8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 12px;
+    }
+    .ct-hero__sub {
+        color: var(--color-text-secondary);
+        font-size: 1rem;
+        max-width: 500px;
+        margin: 0 auto 32px;
+        line-height: 1.65;
+    }
+    .ct-hero__actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Quick intent cards */
+    .ct-intents {
+        padding: 36px 0;
+        border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .ct-intents__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+    .ct-intent {
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 12px;
+        padding: 18px 16px;
+        cursor: pointer;
+        transition: all .2s;
+        text-align: center;
+        text-decoration: none;
+    }
+    .ct-intent:hover { border-color: rgba(37,99,235,.3); background: rgba(37,99,235,.06); transform: translateY(-2px); }
+    .ct-intent.active { border-color: var(--color-primary); background: rgba(37,99,235,.1); }
+    .ct-intent__icon { font-size: 1.5rem; margin-bottom: 8px; display: block; }
+    .ct-intent h3 { font-size: .85rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px; }
+    .ct-intent p { font-size: .76rem; color: var(--color-text-muted); line-height: 1.4; }
+
+    /* Main layout */
+    .ct-layout {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 36px;
+        padding: 48px 0 72px;
+        align-items: start;
+    }
+
+    /* Form card */
+    .ct-form-card {
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 16px;
+        padding: 32px;
+    }
+    .ct-form-card h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 6px;
+    }
+    .ct-form-card__sub {
+        font-size: .85rem;
+        color: var(--color-text-muted);
+        margin-bottom: 24px;
+        line-height: 1.5;
+    }
+    .ct-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 0; }
+    .ct-form-group { margin-bottom: 14px; }
+    .ct-form-label {
+        display: block;
+        font-size: .78rem;
+        color: var(--color-text-muted);
+        margin-bottom: 6px;
+        font-weight: 500;
+    }
+    .ct-form-input {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 9px;
+        color: var(--color-text-primary);
+        padding: 10px 13px;
+        font-size: .9rem;
+        width: 100%;
+        transition: border-color .2s, box-shadow .2s;
+    }
+    .ct-form-input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+    .ct-form-select { appearance: none; cursor: pointer; }
+    .ct-form-textarea { min-height: 110px; resize: vertical; }
+    .ct-form-submit {
+        width: 100%;
+        background: linear-gradient(135deg, var(--color-primary), #1d4ed8);
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        padding: 13px;
+        font-size: .95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: opacity .2s, transform .1s;
+        margin-top: 4px;
+    }
+    .ct-form-submit:hover { opacity: .9; transform: translateY(-1px); }
+    .ct-form-note {
+        font-size: .76rem;
+        color: var(--color-text-muted);
+        text-align: center;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    /* Right sidebar */
+    .ct-sidebar { display: flex; flex-direction: column; gap: 14px; }
+    .ct-widget {
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 14px;
+        padding: 20px;
+    }
+    .ct-widget__title {
+        font-size: .72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: var(--color-text-muted);
+        margin-bottom: 14px;
+    }
+
+    /* Contact info list */
+    .ct-info-list { display: flex; flex-direction: column; gap: 14px; }
+    .ct-info-item { display: flex; align-items: flex-start; gap: 12px; }
+    .ct-info-item__icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: rgba(37,99,235,.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .9rem;
+        flex-shrink: 0;
+    }
+    .ct-info-item__label { font-size: .76rem; color: var(--color-text-muted); margin-bottom: 2px; }
+    .ct-info-item__value { font-size: .88rem; color: var(--color-text-secondary); }
+    .ct-info-item__value a { color: var(--color-accent); text-decoration: none; }
+    .ct-info-item__value a:hover { color: var(--color-primary); }
+
+    /* Hours */
+    .ct-hours { display: flex; flex-direction: column; gap: 6px; }
+    .ct-hour-row { display: flex; justify-content: space-between; font-size: .83rem; }
+    .ct-hour-row .day { color: var(--color-text-muted); }
+    .ct-hour-row .time { color: var(--color-text-secondary); font-weight: 500; }
+    .ct-hour-row.today .day, .ct-hour-row.today .time { color: #10b981; }
+
+    /* Demo booking */
+    .ct-demo {
+        background: linear-gradient(135deg, rgba(37,99,235,.1), rgba(6,182,212,.08));
+        border-color: rgba(37,99,235,.2);
+        text-align: center;
+    }
+    .ct-demo__icon { font-size: 2rem; margin-bottom: 10px; }
+    .ct-demo h3 { font-size: .95rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 6px; }
+    .ct-demo p { font-size: .8rem; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 14px; }
+    .ct-demo-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-radius: 9px;
+        font-size: .85rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1px solid rgba(37,99,235,.3);
+        background: rgba(37,99,235,.12);
+        color: var(--color-primary);
+        transition: all .2s;
+        text-align: center;
+        text-decoration: none;
+    }
+    .ct-demo-btn:hover { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .ct-demo-note { font-size: .72rem; color: var(--color-text-muted); margin-top: 8px; }
+
+    /* Social links */
+    .ct-social { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ct-social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding: 9px 10px;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 9px;
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        font-size: .82rem;
+        font-weight: 500;
+        transition: all .2s;
+        background: rgba(255,255,255,.03);
+    }
+    .ct-social-btn:hover { border-color: var(--color-primary); color: var(--color-primary); background: rgba(37,99,235,.08); }
+
+    /* Quick links */
+    .ct-quick-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .ct-quick-list a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 8px;
+        border-radius: 7px;
+        text-decoration: none;
+        font-size: .83rem;
+        color: var(--color-text-muted);
+        transition: all .2s;
+    }
+    .ct-quick-list a:hover { background: rgba(255,255,255,.05); color: var(--color-primary); }
+    .ct-quick-list a::before { content: '→'; color: var(--color-primary); }
+
+    @media (max-width: 900px) {
+        .ct-layout { grid-template-columns: 1fr; }
+        .ct-intents__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+        .ct-form-row { grid-template-columns: 1fr; }
+        .ct-intents__grid { grid-template-columns: 1fr 1fr; }
+        .ct-social { grid-template-columns: 1fr 1fr; }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav__content">
+                <a href="/" class="nav__logo">⚡ ClaudeMarketplace</a>
+                <ul class="nav__links">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="/ai-agents">AI Agents</a></li>
+                    <li><a href="/tin-tuc-ai-agents">Tin tức</a></li>
+                    <li><a href="/dich-vu">Dịch vụ</a></li>
+                    <li><a href="/#about">Về chúng tôi</a></li>
+                    <li><a href="/lien-he" class="nav__link--active">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="ct-hero" aria-labelledby="ct-h1">
+        <div class="container">
+            <span class="ct-hero__eyebrow">💬 Luôn sẵn sàng hỗ trợ</span>
+            <h1 id="ct-h1">Liên Hệ Với Chúng Tôi</h1>
+            <p class="ct-hero__sub">Tư vấn miễn phí 100%. Đội ngũ chuyên gia phản hồi trong vòng 4 giờ làm việc. Hỗ trợ từ 9AM đến 9PM mỗi ngày.</p>
+            <div class="ct-hero__actions">
+                <a href="mailto:hello@claudemarketplace.vn" class="btn btn--outline btn--small">📧 Email ngay</a>
+                <a href="tel:+84912345678" class="btn btn--outline btn--small">📞 Gọi ngay</a>
+                <a href="https://zalo.me/0912345678" class="btn btn--primary btn--small">💬 Nhắn Zalo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick intent selection -->
+    <section class="ct-intents" aria-label="Bạn cần gì?">
+        <div class="container">
+            <div class="ct-intents__grid">
+                <a href="#contact-form" class="ct-intent active">
+                    <span class="ct-intent__icon">🤖</span>
+                    <h3>Tư vấn AI Agent</h3>
+                    <p>Chọn agent phù hợp cho bài toán của tôi</p>
+                </a>
+                <a href="#contact-form" class="ct-intent">
+                    <span class="ct-intent__icon">🎓</span>
+                    <h3>Đăng ký đào tạo</h3>
+                    <p>Khóa học triển khai AI Agents cho team</p>
+                </a>
+                <a href="#contact-form" class="ct-intent">
+                    <span class="ct-intent__icon">🚀</span>
+                    <h3>Setup toàn bộ hệ thống</h3>
+                    <p>Thuê chuyên gia làm từ A đến Z</p>
+                </a>
+                <a href="#contact-form" class="ct-intent">
+                    <span class="ct-intent__icon">❓</span>
+                    <h3>Hỗ trợ kỹ thuật</h3>
+                    <p>Gặp sự cố, cần hỗ trợ vận hành</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Layout -->
+    <div class="container">
+        <div class="ct-layout">
+
+            <!-- Left: Contact Form -->
+            <div class="ct-form-card" id="contact-form">
+                <h2>Gửi tin nhắn cho chúng tôi</h2>
+                <p class="ct-form-card__sub">Mô tả ngắn gọn bài toán hoặc nhu cầu của bạn. Chuyên gia sẽ liên hệ trong 4 giờ làm việc với giải pháp cụ thể.</p>
+
+                <form aria-label="Contact form" onsubmit="handleContactForm(event)">
+                    <div class="ct-form-row" style="margin-bottom:14px;">
+                        <div>
+                            <label class="ct-form-label" for="ct-name">Họ và tên *</label>
+                            <input type="text" id="ct-name" class="ct-form-input" required placeholder="Nguyễn Văn A">
+                        </div>
+                        <div>
+                            <label class="ct-form-label" for="ct-company">Công ty</label>
+                            <input type="text" id="ct-company" class="ct-form-input" placeholder="ABC Vietnam">
+                        </div>
+                    </div>
+
+                    <div class="ct-form-row" style="margin-bottom:14px;">
+                        <div>
+                            <label class="ct-form-label" for="ct-phone">Số điện thoại *</label>
+                            <input type="tel" id="ct-phone" class="ct-form-input" required placeholder="0912 345 678">
+                        </div>
+                        <div>
+                            <label class="ct-form-label" for="ct-email">Email *</label>
+                            <input type="email" id="ct-email" class="ct-form-input" required placeholder="you@company.com">
+                        </div>
+                    </div>
+
+                    <div class="ct-form-group">
+                        <label class="ct-form-label" for="ct-dept">Phòng ban / Vị trí</label>
+                        <select id="ct-dept" class="ct-form-input ct-form-select">
+                            <option value="">-- Chọn phòng ban --</option>
+                            <option>Sales & Marketing</option>
+                            <option>Operations & Vận hành</option>
+                            <option>Customer Service / CSKH</option>
+                            <option>HR & Tuyển dụng</option>
+                            <option>Tài chính & Kế toán</option>
+                            <option>Management / Ban lãnh đạo</option>
+                            <option>IT & Công nghệ</option>
+                        </select>
+                    </div>
+
+                    <div class="ct-form-group">
+                        <label class="ct-form-label" for="ct-service">Bạn quan tâm đến</label>
+                        <select id="ct-service" class="ct-form-input ct-form-select">
+                            <option>Tư vấn chọn AI Agent phù hợp</option>
+                            <option>Đào tạo team nội bộ (khóa học)</option>
+                            <option>Setup & triển khai toàn bộ — Gói Starter</option>
+                            <option>Setup & triển khai toàn bộ — Gói Growth</option>
+                            <option>Setup & triển khai toàn bộ — Gói Enterprise</option>
+                            <option>Hỗ trợ kỹ thuật / Bug</option>
+                        </select>
+                    </div>
+
+                    <div class="ct-form-group">
+                        <label class="ct-form-label" for="ct-message">Mô tả ngắn bài toán của bạn *</label>
+                        <textarea id="ct-message" class="ct-form-input ct-form-textarea" required placeholder="Ví dụ: Công ty chúng tôi bán hàng online nhưng đội sales không theo kịp lead ngoài giờ hành chính. Cần giải pháp tư vấn và chốt đơn tự động 24/7..."></textarea>
+                    </div>
+
+                    <button type="submit" class="ct-form-submit" id="submit-btn">Gửi liên hệ →</button>
+                    <p class="ct-form-note">🔒 Thông tin của bạn được bảo mật tuyệt đối. Phản hồi trong 4 giờ làm việc.</p>
+                </form>
+            </div>
+
+            <!-- Right: Sidebar Info -->
+            <aside class="ct-sidebar" aria-label="Thông tin liên hệ">
+
+                <!-- Contact info -->
+                <div class="ct-widget">
+                    <p class="ct-widget__title">Thông tin liên hệ</p>
+                    <div class="ct-info-list">
+                        <div class="ct-info-item">
+                            <div class="ct-info-item__icon">📧</div>
+                            <div>
+                                <div class="ct-info-item__label">Email</div>
+                                <div class="ct-info-item__value">
+                                    <a href="mailto:hello@claudemarketplace.vn">hello@claudemarketplace.vn</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ct-info-item">
+                            <div class="ct-info-item__icon">📞</div>
+                            <div>
+                                <div class="ct-info-item__label">Điện thoại / Zalo</div>
+                                <div class="ct-info-item__value">
+                                    <a href="tel:+84912345678">+84 (912) 345 678</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ct-info-item">
+                            <div class="ct-info-item__icon">📍</div>
+                            <div>
+                                <div class="ct-info-item__label">Địa chỉ</div>
+                                <div class="ct-info-item__value">Phòng 202, 123 Nguyễn Huệ, Q.1, TP.HCM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working hours -->
+                <div class="ct-widget">
+                    <p class="ct-widget__title">Giờ làm việc (UTC+7)</p>
+                    <div class="ct-hours">
+                        <div class="ct-hour-row today">
+                            <span class="day">Thứ Hai – Thứ Sáu</span>
+                            <span class="time">9:00 – 21:00</span>
+                        </div>
+                        <div class="ct-hour-row">
+                            <span class="day">Thứ Bảy</span>
+                            <span class="time">10:00 – 18:00</span>
+                        </div>
+                        <div class="ct-hour-row">
+                            <span class="day">Chủ Nhật</span>
+                            <span class="time">14:00 – 18:00</span>
+                        </div>
+                    </div>
+                    <p style="font-size:.76rem; color:#10b981; margin-top:10px; display:flex; align-items:center; gap:5px;">
+                        <span style="width:6px; height:6px; border-radius:50%; background:#10b981; display:inline-block; animation:pulse 1.5s infinite;"></span>
+                        Đang trực tuyến ngay bây giờ
+                    </p>
+                </div>
+
+                <!-- Demo call booking -->
+                <div class="ct-widget ct-demo">
+                    <div class="ct-demo__icon">📅</div>
+                    <h3>Đặt lịch Demo Call</h3>
+                    <p>Nói chuyện trực tiếp với chuyên gia 30 phút. Miễn phí, không có nghĩa vụ mua hàng.</p>
+                    <a href="#contact-form" class="ct-demo-btn" onclick="selectService('demo')">Đặt lịch demo →</a>
+                    <p class="ct-demo-note">Via Zoom, Google Meet hoặc Zalo Call</p>
+                </div>
+
+                <!-- Social channels -->
+                <div class="ct-widget">
+                    <p class="ct-widget__title">Kênh mạng xã hội</p>
+                    <div class="ct-social">
+                        <a href="https://facebook.com/claudemarketplace" class="ct-social-btn">👍 Facebook</a>
+                        <a href="https://linkedin.com/company/claudemarketplace" class="ct-social-btn">💼 LinkedIn</a>
+                        <a href="https://youtube.com/@claudemarketplace" class="ct-social-btn">▶️ YouTube</a>
+                        <a href="https://zalo.me/0912345678" class="ct-social-btn">💬 Zalo OA</a>
+                    </div>
+                </div>
+
+                <!-- Quick links -->
+                <div class="ct-widget">
+                    <p class="ct-widget__title">Liên kết nhanh</p>
+                    <ul class="ct-quick-list">
+                        <li><a href="/ai-agents">Khám phá AI Agents</a></li>
+                        <li><a href="/dich-vu">Xem dịch vụ & báo giá</a></li>
+                        <li><a href="/tin-tuc-ai-agents/ai-agent-la-gi-giai-thich-toan-dien-cho-doanh-nghiep-viet-nam">AI Agent là gì?</a></li>
+                        <li><a href="/tin-tuc-ai-agents">Blog & Case Study</a></li>
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo" aria-label="Thông tin trang">
+  <div class="sf-newsletter">
+    <div class="container sf-newsletter__inner">
+      <div class="sf-newsletter__copy">
+        <strong>Nhận cập nhật AI Agents mỗi tuần</strong>
+        <span>Xu hướng mới · Case study thực tế · Tips triển khai cho doanh nghiệp Việt Nam</span>
+      </div>
+      <form class="sf-newsletter__form" onsubmit="sfSubscribe(event)">
+        <input type="email" placeholder="Email của bạn..." required aria-label="Email đăng ký nhận tin">
+        <button type="submit">Đăng ký miễn phí</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="sf-grid">
+      <div class="sf-brand">
+        <a href="/" class="sf-logo" aria-label="ClaudeMarketplace trang chủ">
+          <div class="sf-logo__icon">⚡</div>
+          <div class="sf-logo__text"><span>Claude</span>Marketplace</div>
+        </a>
+        <p class="sf-tagline">Marketplace AI Agents số 1 cho doanh nghiệp Việt Nam. Triển khai tự động hóa thông minh, tăng hiệu suất 3×.</p>
+        <div class="sf-contact-list">
+          <a href="mailto:hello@claudemarketplace.vn" class="sf-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            hello@claudemarketplace.vn
+          </a>
+          <a href="tel:+84912345678" class="sf-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 13 19.79 19.79 0 0 1 1.93 4.36 2 2 0 0 1 3.9 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +84 (912) 345 678
+          </a>
+        </div>
+        <div class="sf-social">
+          <a href="#" class="sf-social__item" aria-label="Facebook" title="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="YouTube" title="YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="Zalo OA" title="Zalo">
+            <svg width="15" height="15" viewBox="0 0 50 50" fill="currentColor"><path d="M25 2C12.318 2 2 12.318 2 25c0 3.96 1.023 7.854 2.963 11.29L2.037 46.73a1 1 0 0 0 1.236 1.236l10.44-2.926A22.94 22.94 0 0 0 25 48c12.682 0 23-10.318 23-23S37.682 2 25 2zm-8 22h-4v-8h4v8zm6 0h-4v-12h4v12zm6 0h-4v-6h4v6z"/></svg>
+          </a>
+          <a href="#" class="sf-social__item" aria-label="X / Twitter" title="X (Twitter)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">AI Agents</h3>
+        <nav aria-label="Danh mục AI Agents">
+          <a href="/ai-agents?dept=sales-marketing" class="sf-col__link">Sales &amp; Marketing</a>
+          <a href="/ai-agents?dept=phan-tich-kinh-doanh" class="sf-col__link">Phân tích Kinh doanh</a>
+          <a href="/ai-agents?dept=research-thi-truong" class="sf-col__link">Research Thị trường</a>
+          <a href="/ai-agents?dept=crm-cskh" class="sf-col__link">CRM &amp; CSKH</a>
+          <a href="/ai-agents?dept=content" class="sf-col__link">Content &amp; Truyền thông</a>
+          <a href="/ai-agents?dept=hr" class="sf-col__link">HR &amp; Tuyển dụng</a>
+          <a href="/ai-agents?dept=tai-chinh" class="sf-col__link">Tài chính</a>
+        </nav>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">Tin Tức</h3>
+        <nav aria-label="Danh mục tin tức">
+          <a href="/tin-tuc-ai-agents" class="sf-col__link">Tin Tức AI Agents</a>
+          <a href="/tin-tuc-claude-updates" class="sf-col__link">Claude Updates</a>
+          <a href="/tin-tuc-case-study-doanh-nghiep" class="sf-col__link">Case Study Doanh Nghiệp</a>
+          <a href="/tin-tuc-huong-dan-trien-khai-ai-agents" class="sf-col__link">Hướng Dẫn Triển Khai</a>
+          <a href="/tin-tuc-xu-huong-ai-va-tu-dong-hoa" class="sf-col__link">Xu Hướng AI &amp; Tự Động Hóa</a>
+        </nav>
+        <h3 class="sf-col__title" style="margin-top:1.5rem;">Dịch Vụ</h3>
+        <nav aria-label="Dịch vụ">
+          <a href="/dich-vu/dao-tao-trien-khai-ai-agents-cho-doanh-nghiep" class="sf-col__link">Đào Tạo AI Agents</a>
+          <a href="/dich-vu/tu-van-setup-va-chuyen-giao-bo-ai-agents-cho-doanh-nghiep" class="sf-col__link">Tư Vấn &amp; Setup</a>
+        </nav>
+      </div>
+
+      <div class="sf-col">
+        <h3 class="sf-col__title">Công Ty</h3>
+        <nav aria-label="Thông tin công ty">
+          <a href="/#about" class="sf-col__link">Về Chúng Tôi</a>
+          <a href="/lien-he" class="sf-col__link">Liên Hệ</a>
+          <a href="/chinh-sach-bao-mat" class="sf-col__link">Chính Sách Bảo Mật</a>
+          <a href="/dieu-khoan-su-dung" class="sf-col__link">Điều Khoản Sử Dụng</a>
+          <a href="/sitemap.xml" class="sf-col__link">Sitemap</a>
+        </nav>
+        <h3 class="sf-col__title" style="margin-top:1.5rem;">Hỗ Trợ</h3>
+        <nav aria-label="Hỗ trợ khách hàng">
+          <a href="/lien-he" class="sf-col__link">Tư vấn miễn phí</a>
+          <a href="mailto:hello@claudemarketplace.vn" class="sf-col__link">Gửi email</a>
+          <a href="tel:+84912345678" class="sf-col__link">Gọi ngay</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="sf-badges">
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9c0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Bảo mật dữ liệu ISO 27001
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        GDPR Compliant
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Uptime 99.9%
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        500+ Doanh nghiệp tin dùng
+      </div>
+      <div class="sf-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Powered by Claude AI
+      </div>
+    </div>
+
+    <div class="sf-bottom">
+      <div class="sf-bottom__left">
+        <span>© 2025 ClaudeMarketplace</span>
+        <span class="sf-bottom__sep">·</span>
+        <span>🇻🇳 Làm tại Việt Nam</span>
+        <span class="sf-bottom__sep">·</span>
+        <span>Powered by Claude AI</span>
+      </div>
+      <div class="sf-bottom__right">
+        <a href="/chinh-sach-bao-mat" class="sf-bottom__link">Chính sách bảo mật</a>
+        <a href="/dieu-khoan-su-dung" class="sf-bottom__link">Điều khoản</a>
+        <a href="/sitemap.xml" class="sf-bottom__link">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function sfSubscribe(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const input = e.target.querySelector('input');
+  btn.textContent = '✓ Đã đăng ký!';
+  btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
+  input.disabled = true; btn.disabled = true;
+}
+</script>
+
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Về đầu trang" title="Về đầu trang">↑</button>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ClaudeMarketplace",
+        "url": "https://claudemarketplace.vn",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "telephone": "+84-912-345-678",
+            "email": "hello@claudemarketplace.vn",
+            "availableLanguage": "Vietnamese",
+            "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "09:00",
+                "closes": "21:00"
+            }
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Phòng 202, 123 Đường Nguyễn Huệ",
+            "addressLocality": "Quận 1",
+            "addressRegion": "Hồ Chí Minh",
+            "addressCountry": "VN"
+        },
+        "sameAs": [
+            "https://facebook.com/claudemarketplace",
+            "https://linkedin.com/company/claudemarketplace"
+        ]
+    }
+    </script>
+
+    <script>
+    // Intent card selection
+    document.querySelectorAll('.ct-intent').forEach(card => {
+        card.addEventListener('click', () => {
+            document.querySelectorAll('.ct-intent').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+        });
+    });
+
+    function selectService(type) {
+        const sel = document.getElementById('ct-service');
+        if (sel && type === 'demo') {
+            sel.value = sel.options[0].value;
+        }
+    }
+
+    function handleContactForm(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        btn.textContent = '✓ Đã gửi! Chúng tôi sẽ liên hệ bạn trong 4 giờ.';
+        btn.style.background = '#10b981';
+        btn.disabled = true;
+    }
+    </script>
+</body>
+</html>
