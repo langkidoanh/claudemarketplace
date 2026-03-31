@@ -1,11 +1,11 @@
 {
   "version": 2,
   "name": "claudemarketplace",
-  "buildCommand": "mkdir -p public && cp -r frontend/. public/",
-  "outputDirectory": "public",
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/ai-agents/:slug", "destination": "/agent-detail" },
-    { "source": "/tin-tuc-:category/:slug", "destination": "/news-detail" }
+  "outputDirectory": "frontend",
+  "routes": [
+    { "src": "/ai-agents/([^/]+)", "dest": "/agent-detail.html" },
+    { "src": "/tin-tuc-([^/]+)/([^/]+)", "dest": "/news-detail.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/$1.html" }
   ]
 }
