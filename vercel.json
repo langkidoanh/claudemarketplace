@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "claudemarketplace",
+  "buildCommand": "echo 'static site - no build needed'",
   "outputDirectory": "frontend",
   "cleanUrls": true,
   "rewrites": [
