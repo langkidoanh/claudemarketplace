@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "claudemarketplace",
+  "outputDirectory": "frontend",
+  "routes": [
+    { "src": "/marketplace",   "dest": "/marketplace.html" },
+    { "src": "/agent-detail",  "dest": "/agent-detail.html" },
+    { "src": "/news",          "dest": "/news.html" },
+    { "src": "/news-detail",   "dest": "/news-detail.html" },
+    { "src": "/services",      "dest": "/services.html" },
+    { "src": "/contact",       "dest": "/contact.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)",          "dest": "/index.html" }
+  ]
+}
