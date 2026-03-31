@@ -6,17 +6,39 @@
     <meta name="description" content="ClaudeMarketplace – Marketplace AI Agents đầu tiên tại Việt Nam. Sứ mệnh giúp doanh nghiệp Việt tự động hóa với AI Claude của Anthropic.">
     <title>Về Chúng Tôi – ClaudeMarketplace | AI Agents Cho Doanh Nghiệp Việt Nam</title>
     <link rel="canonical" href="https://claudemarketplace.vn/ve-chung-toi">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/components.css">
-    <script src="/js/main.js" defer></script>
 
     <style>
-    /* ── ABOUT PAGE STYLES ────────────────────────────────────── */
+    /* ── CSS VAR ALIASES (trang dùng --accent, --text-secondary) ── */
+    :root {
+        --accent: var(--color-accent);
+        --text-secondary: var(--color-text-secondary);
+        --text-primary: var(--color-text-primary);
+    }
 
+    /* ── PAGE TOP PADDING (fixed nav) ────────────────────────────── */
+    .page-wrap { padding-top: var(--nav-height); }
+
+    /* ── ABOUT PAGE STYLES ───────────────────────────────────────── */
     .ab-hero {
-        padding: 72px 0 56px;
+        padding: 80px 0 64px;
         text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,.06);
+        border-bottom: 1px solid var(--color-border);
+        background: linear-gradient(180deg, rgba(37,99,235,0.04) 0%, transparent 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    .ab-hero::before {
+        content: '';
+        position: absolute;
+        top: -80px; left: 50%;
+        transform: translateX(-50%);
+        width: 800px; height: 300px;
+        background: radial-gradient(ellipse at center, rgba(37,99,235,0.10) 0%, transparent 70%);
+        pointer-events: none;
     }
     .ab-hero__eyebrow {
         display: inline-block;
@@ -24,50 +46,59 @@
         font-weight: 600;
         letter-spacing: .12em;
         text-transform: uppercase;
-        color: var(--accent);
+        color: var(--color-accent);
         margin-bottom: 16px;
+        padding: 6px 16px;
+        background: rgba(6,182,212,.1);
+        border: 1px solid rgba(6,182,212,.2);
+        border-radius: var(--radius-full);
     }
     .ab-hero h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(2rem, 5vw, 3.25rem);
         font-weight: 800;
         line-height: 1.15;
         margin-bottom: 20px;
-        background: linear-gradient(135deg, #fff 40%, var(--accent));
+        background: linear-gradient(135deg, #fff 40%, var(--color-accent));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
     .ab-hero__sub {
         font-size: 1.1rem;
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
         max-width: 640px;
-        margin: 0 auto 36px;
-        line-height: 1.7;
+        margin: 0 auto 40px;
+        line-height: 1.75;
     }
     .ab-hero__stats {
         display: flex;
         justify-content: center;
-        gap: 48px;
+        gap: 56px;
         flex-wrap: wrap;
-        margin-top: 40px;
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--color-border);
     }
     .ab-stat { text-align: center; }
     .ab-stat__num {
-        font-size: 2.4rem;
+        font-size: 2.6rem;
         font-weight: 800;
-        color: var(--accent);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         line-height: 1;
     }
     .ab-stat__label {
         font-size: .82rem;
-        color: var(--text-secondary);
-        margin-top: 6px;
+        color: var(--color-text-muted);
+        margin-top: 8px;
     }
 
-    /* Mission */
+    /* ── Mission ──────────────────────────────────────────────────── */
     .ab-mission {
-        padding: 72px 0;
-        border-bottom: 1px solid rgba(255,255,255,.06);
+        padding: 80px 0;
+        border-bottom: 1px solid var(--color-border);
     }
     .ab-mission__grid {
         display: grid;
@@ -81,12 +112,12 @@
         align-items: center;
         gap: 8px;
         padding: 6px 14px;
-        background: rgba(99,102,241,.15);
-        border: 1px solid rgba(99,102,241,.3);
-        border-radius: 20px;
+        background: rgba(37,99,235,.12);
+        border: 1px solid rgba(37,99,235,.25);
+        border-radius: var(--radius-full);
         font-size: .78rem;
         font-weight: 600;
-        color: var(--accent);
+        color: var(--color-primary-light);
         margin-bottom: 20px;
     }
     .ab-mission h2 {
@@ -94,291 +125,349 @@
         font-weight: 800;
         line-height: 1.25;
         margin-bottom: 20px;
+        color: var(--color-text-primary);
     }
     .ab-mission p {
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
         line-height: 1.8;
         margin-bottom: 16px;
     }
     .ab-vision-card {
-        background: rgba(99,102,241,.08);
-        border: 1px solid rgba(99,102,241,.2);
-        border-radius: 16px;
-        padding: 32px;
+        background: linear-gradient(135deg, rgba(37,99,235,.08) 0%, rgba(6,182,212,.06) 100%);
+        border: 1px solid rgba(37,99,235,.2);
+        border-radius: var(--radius-xl);
+        padding: 36px;
     }
     .ab-vision-card h3 {
         font-size: 1.1rem;
         font-weight: 700;
-        margin-bottom: 12px;
-        color: var(--accent);
+        margin-bottom: 14px;
+        color: var(--color-accent);
     }
     .ab-vision-card p {
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
         line-height: 1.8;
         margin: 0;
     }
 
-    /* Values */
+    /* ── Values ───────────────────────────────────────────────────── */
     .ab-values {
-        padding: 72px 0;
-        border-bottom: 1px solid rgba(255,255,255,.06);
+        padding: 80px 0;
+        border-bottom: 1px solid var(--color-border);
     }
     .ab-values__header {
         text-align: center;
-        margin-bottom: 48px;
+        margin-bottom: 52px;
+    }
+    .ab-values__header .section-label {
+        display: block;
+        font-size: .72rem;
+        font-weight: 600;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 12px;
     }
     .ab-values__header h2 {
         font-size: clamp(1.5rem, 3vw, 2rem);
         font-weight: 800;
         margin-bottom: 12px;
+        color: var(--color-text-primary);
     }
     .ab-values__header p {
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
     }
     .ab-values__grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 24px;
     }
     .ab-value-card {
-        background: rgba(255,255,255,.03);
-        border: 1px solid rgba(255,255,255,.08);
-        border-radius: 16px;
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
         padding: 28px;
-        transition: border-color .2s, transform .2s;
+        transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
     }
     .ab-value-card:hover {
-        border-color: rgba(99,102,241,.4);
-        transform: translateY(-2px);
+        border-color: var(--color-border-hover);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-card-hover);
     }
     .ab-value-card__icon {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-bottom: 16px;
+        display: block;
     }
     .ab-value-card h3 {
         font-size: 1.05rem;
         font-weight: 700;
         margin-bottom: 10px;
+        color: var(--color-text-primary);
     }
     .ab-value-card p {
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
         font-size: .9rem;
-        line-height: 1.7;
+        line-height: 1.75;
         margin: 0;
     }
 
-    /* Why we exist */
+    /* ── Why we exist ─────────────────────────────────────────────── */
     .ab-why {
-        padding: 72px 0;
-        border-bottom: 1px solid rgba(255,255,255,.06);
-        background: rgba(99,102,241,.04);
+        padding: 80px 0;
+        border-bottom: 1px solid var(--color-border);
+        background: rgba(37,99,235,.03);
     }
     .ab-why__inner {
-        max-width: 720px;
+        max-width: 740px;
         margin: 0 auto;
         text-align: center;
+    }
+    .ab-why__inner .section-label {
+        display: block;
+        font-size: .72rem;
+        font-weight: 600;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 12px;
     }
     .ab-why__inner h2 {
         font-size: clamp(1.5rem, 3vw, 2rem);
         font-weight: 800;
         margin-bottom: 20px;
+        color: var(--color-text-primary);
     }
     .ab-why__inner p {
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
         line-height: 1.8;
         margin-bottom: 16px;
         font-size: 1rem;
     }
+    .ab-why__inner p strong { color: var(--color-text-primary); }
     .ab-why__list {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
         text-align: left;
-        margin-top: 36px;
+        margin-top: 40px;
     }
     @media(max-width:600px){ .ab-why__list { grid-template-columns: 1fr; } }
     .ab-why__item {
         display: flex;
         align-items: flex-start;
-        gap: 12px;
-        background: rgba(255,255,255,.04);
-        border: 1px solid rgba(255,255,255,.07);
-        border-radius: 12px;
-        padding: 16px;
+        gap: 14px;
+        background: var(--color-bg-card);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: 18px;
+        transition: border-color var(--transition-fast);
     }
-    .ab-why__item-icon { font-size: 1.4rem; flex-shrink: 0; }
-    .ab-why__item-text strong { display: block; font-size: .9rem; margin-bottom: 4px; }
-    .ab-why__item-text span { font-size: .82rem; color: var(--text-secondary); }
+    .ab-why__item:hover { border-color: var(--color-border-hover); }
+    .ab-why__item-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .ab-why__item-text strong { display: block; font-size: .92rem; margin-bottom: 5px; color: var(--color-text-primary); }
+    .ab-why__item-text span { font-size: .82rem; color: var(--color-text-muted); line-height: 1.6; }
 
-    /* CTA */
+    /* ── CTA section ──────────────────────────────────────────────── */
     .ab-cta {
-        padding: 72px 0;
+        padding: 96px 0;
         text-align: center;
+        background: linear-gradient(180deg, transparent, rgba(37,99,235,.04));
+    }
+    .ab-cta__inner { max-width: 600px; margin: 0 auto; }
+    .ab-cta__label {
+        display: inline-block;
+        font-size: .72rem;
+        font-weight: 600;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 20px;
     }
     .ab-cta h2 {
-        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
         font-weight: 800;
         margin-bottom: 16px;
+        color: var(--color-text-primary);
     }
     .ab-cta p {
-        color: var(--text-secondary);
-        margin-bottom: 32px;
+        color: var(--color-text-secondary);
+        margin-bottom: 36px;
+        line-height: 1.75;
     }
     .ab-cta__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <div class="nav__content">
-                <a href="/" class="nav__logo">⚡ ClaudeMarketplace</a>
-                <ul class="nav__links">
-                    <li><a href="/">Trang chủ</a></li>
-                    <li><a href="/ai-agents">AI Agents</a></li>
-                    <li><a href="/tin-tuc-ai-agents">Tin tức</a></li>
-                    <li><a href="/dich-vu">Dịch vụ</a></li>
-                    <li><a href="/ve-chung-toi" class="nav__link--active">Về chúng tôi</a></li>
-                    <li><a href="/lien-he">Liên hệ</a></li>
-                </ul>
+
+<!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Điều hướng chính">
+    <div class="container">
+        <div class="nav__inner">
+            <a href="/" class="nav__logo" aria-label="Claude Marketplace - Trang chủ">
+                <div class="nav__logo-icon" aria-hidden="true">⚡</div>
+                <div class="nav__logo-text"><span>Claude</span>Marketplace</div>
+            </a>
+
+            <div class="nav__links" role="menubar">
+                <a href="/" class="nav__link" role="menuitem">Trang chủ</a>
+                <a href="/ai-agents" class="nav__link" role="menuitem">AI Agents</a>
+                <a href="/tin-tuc-ai-agents" class="nav__link" role="menuitem">Tin tức</a>
+                <a href="/dich-vu" class="nav__link" role="menuitem">Dịch vụ</a>
+                <a href="/ve-chung-toi" class="nav__link active" role="menuitem">Về chúng tôi</a>
+                <a href="/lien-he" class="nav__link" role="menuitem">Liên hệ</a>
+            </div>
+
+            <div class="nav__actions">
                 <button class="btn btn--outline btn--sm" onclick="window.location='/lien-he'">Tư vấn miễn phí</button>
+                <button class="btn btn--primary btn--sm" onclick="window.location='/ai-agents'">Xem Agents</button>
+                <button class="nav__hamburger" aria-label="Mở menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero -->
-    <section class="ab-hero">
-        <div class="container">
-            <span class="ab-hero__eyebrow">🇻🇳 Marketplace AI đầu tiên tại Việt Nam</span>
-            <h1>Chúng Tôi Xây Dựng<br>Tương Lai AI Cho Doanh Nghiệp Việt</h1>
-            <p class="ab-hero__sub">ClaudeMarketplace ra đời với một sứ mệnh: giúp mọi doanh nghiệp Việt Nam — từ startup đến tập đoàn — tiếp cận và triển khai AI Agents một cách dễ dàng, an toàn và hiệu quả.</p>
-            <div class="ab-hero__stats">
-                <div class="ab-stat">
-                    <div class="ab-stat__num">500+</div>
-                    <div class="ab-stat__label">Doanh nghiệp tin dùng</div>
-                </div>
-                <div class="ab-stat">
-                    <div class="ab-stat__num">22</div>
-                    <div class="ab-stat__label">AI Agents chuyên biệt</div>
-                </div>
-                <div class="ab-stat">
-                    <div class="ab-stat__num">40%</div>
-                    <div class="ab-stat__label">Tăng doanh thu trung bình</div>
-                </div>
-                <div class="ab-stat">
-                    <div class="ab-stat__num">4.9★</div>
-                    <div class="ab-stat__label">Đánh giá trung bình</div>
-                </div>
+<div class="page-wrap">
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="ab-hero">
+    <div class="container">
+        <span class="ab-hero__eyebrow">🇻🇳 Marketplace AI đầu tiên tại Việt Nam</span>
+        <h1>Chúng Tôi Xây Dựng<br>Tương Lai AI Cho Doanh Nghiệp Việt</h1>
+        <p class="ab-hero__sub">ClaudeMarketplace ra đời với một sứ mệnh: giúp mọi doanh nghiệp Việt Nam — từ startup đến tập đoàn — tiếp cận và triển khai AI Agents một cách dễ dàng, an toàn và hiệu quả.</p>
+        <div class="ab-hero__stats">
+            <div class="ab-stat">
+                <div class="ab-stat__num">500+</div>
+                <div class="ab-stat__label">Doanh nghiệp tin dùng</div>
+            </div>
+            <div class="ab-stat">
+                <div class="ab-stat__num">22</div>
+                <div class="ab-stat__label">AI Agents chuyên biệt</div>
+            </div>
+            <div class="ab-stat">
+                <div class="ab-stat__num">40%</div>
+                <div class="ab-stat__label">Tăng doanh thu trung bình</div>
+            </div>
+            <div class="ab-stat">
+                <div class="ab-stat__num">4.9★</div>
+                <div class="ab-stat__label">Đánh giá trung bình</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Mission & Vision -->
-    <section class="ab-mission">
-        <div class="container">
-            <div class="ab-mission__grid">
-                <div>
-                    <span class="ab-mission__badge">🎯 Sứ mệnh</span>
-                    <h2>Dân chủ hóa AI cho mọi doanh nghiệp Việt Nam</h2>
-                    <p>Chúng tôi tin rằng AI không chỉ dành cho các công ty lớn hay đội ngũ kỹ thuật. Mọi doanh nghiệp — từ tiệm bán lẻ đến công ty sản xuất — đều có thể hưởng lợi từ AI Agents.</p>
-                    <p>ClaudeMarketplace được xây dựng trên nền tảng Claude của Anthropic, một trong những AI mạnh nhất và an toàn nhất thế giới. Chúng tôi đóng gói sức mạnh đó thành các AI Agents chuyên biệt, sẵn sàng triển khai ngay cho từng phòng ban.</p>
-                    <p>Không cần lập trình. Không cần đội IT lớn. Chỉ cần 1–3 ngày là doanh nghiệp bạn đã có AI làm việc 24/7.</p>
-                </div>
-                <div class="ab-vision-card">
-                    <h3>🔭 Tầm nhìn 2030</h3>
-                    <p>Trở thành nền tảng AI Agents hàng đầu Đông Nam Á — nơi mọi doanh nghiệp Việt có thể tìm thấy, triển khai và tối ưu AI Agents phù hợp với ngành của mình, với chi phí minh bạch và hỗ trợ tận tâm bằng tiếng Việt.</p>
-                </div>
+<!-- ─── MISSION & VISION ───────────────────────────────────── -->
+<section class="ab-mission">
+    <div class="container">
+        <div class="ab-mission__grid">
+            <div>
+                <span class="ab-mission__badge">🎯 Sứ mệnh</span>
+                <h2>Dân chủ hóa AI cho mọi doanh nghiệp Việt Nam</h2>
+                <p>Chúng tôi tin rằng AI không chỉ dành cho các công ty lớn hay đội ngũ kỹ thuật. Mọi doanh nghiệp — từ tiệm bán lẻ đến công ty sản xuất — đều có thể hưởng lợi từ AI Agents.</p>
+                <p>ClaudeMarketplace được xây dựng trên nền tảng Claude của Anthropic, một trong những AI mạnh nhất và an toàn nhất thế giới. Chúng tôi đóng gói sức mạnh đó thành các AI Agents chuyên biệt, sẵn sàng triển khai ngay cho từng phòng ban.</p>
+                <p>Không cần lập trình. Không cần đội IT lớn. Chỉ cần 1–3 ngày là doanh nghiệp bạn đã có AI làm việc 24/7.</p>
+            </div>
+            <div class="ab-vision-card">
+                <h3>🔭 Tầm nhìn 2030</h3>
+                <p>Trở thành nền tảng AI Agents hàng đầu Đông Nam Á — nơi mọi doanh nghiệp Việt có thể tìm thấy, triển khai và tối ưu AI Agents phù hợp với ngành của mình, với chi phí minh bạch và hỗ trợ tận tâm bằng tiếng Việt.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Core Values -->
-    <section class="ab-values">
-        <div class="container">
-            <div class="ab-values__header">
-                <h2>Giá Trị Cốt Lõi</h2>
-                <p>Những nguyên tắc định hướng mọi quyết định của chúng tôi</p>
+<!-- ─── CORE VALUES ────────────────────────────────────────── -->
+<section class="ab-values">
+    <div class="container">
+        <div class="ab-values__header">
+            <span class="section-label">Giá trị</span>
+            <h2>Giá Trị Cốt Lõi</h2>
+            <p>Những nguyên tắc định hướng mọi quyết định của chúng tôi</p>
+        </div>
+        <div class="ab-values__grid">
+            <div class="ab-value-card reveal">
+                <span class="ab-value-card__icon">🛡️</span>
+                <h3>An toàn & Bảo mật</h3>
+                <p>Dữ liệu của khách hàng không bao giờ được dùng để train AI. Tuân thủ ISO 27001, GDPR và các tiêu chuẩn bảo mật quốc tế cao nhất.</p>
             </div>
-            <div class="ab-values__grid">
-                <div class="ab-value-card">
-                    <div class="ab-value-card__icon">🛡️</div>
-                    <h3>An toàn & Bảo mật</h3>
-                    <p>Dữ liệu của khách hàng không bao giờ được dùng để train AI. Tuân thủ ISO 27001, GDPR và các tiêu chuẩn bảo mật quốc tế cao nhất.</p>
-                </div>
-                <div class="ab-value-card">
-                    <div class="ab-value-card__icon">🎯</div>
-                    <h3>Kết quả thực tế</h3>
-                    <p>Mỗi AI Agent được đo lường bằng ROI thực tế. Cam kết hoàn tiền nếu không đạt KPI đã thỏa thuận trong 30 ngày đầu.</p>
-                </div>
-                <div class="ab-value-card">
-                    <div class="ab-value-card__icon">🤝</div>
-                    <h3>Đồng hành dài hạn</h3>
-                    <p>Không phải vendor bán xong rồi thôi. Chúng tôi là đối tác chiến lược, đồng hành cùng doanh nghiệp trong suốt hành trình chuyển đổi AI.</p>
-                </div>
-                <div class="ab-value-card">
-                    <div class="ab-value-card__icon">🇻🇳</div>
-                    <h3>Hiểu thị trường Việt</h3>
-                    <p>Đội ngũ người Việt, hiểu văn hóa kinh doanh Việt. Mọi AI Agent đều được tối ưu cho đặc thù thị trường và ngôn ngữ Việt Nam.</p>
-                </div>
-                <div class="ab-value-card">
-                    <div class="ab-value-card__icon">⚡</div>
-                    <h3>Triển khai nhanh</h3>
-                    <p>Cam kết setup xong trong 1–3 ngày. Không phải dự án IT kéo dài nhiều tháng. AI Agents sẵn sàng làm việc ngay tuần đầu tiên.</p>
-                </div>
-                <div class="ab-value-card">
-                    <div class="ab-value-card__icon">💡</div>
-                    <h3>Minh bạch hoàn toàn</h3>
-                    <p>Giá niêm yết công khai, không phí ẩn. Bạn biết chính xác mình đang trả tiền cho điều gì và AI đang làm gì cho doanh nghiệp.</p>
-                </div>
+            <div class="ab-value-card reveal reveal--delay-1">
+                <span class="ab-value-card__icon">🎯</span>
+                <h3>Kết quả thực tế</h3>
+                <p>Mỗi AI Agent được đo lường bằng ROI thực tế. Cam kết hoàn tiền nếu không đạt KPI đã thỏa thuận trong 30 ngày đầu.</p>
+            </div>
+            <div class="ab-value-card reveal reveal--delay-2">
+                <span class="ab-value-card__icon">🤝</span>
+                <h3>Đồng hành dài hạn</h3>
+                <p>Không phải vendor bán xong rồi thôi. Chúng tôi là đối tác chiến lược, đồng hành cùng doanh nghiệp trong suốt hành trình chuyển đổi AI.</p>
+            </div>
+            <div class="ab-value-card reveal">
+                <span class="ab-value-card__icon">🇻🇳</span>
+                <h3>Hiểu thị trường Việt</h3>
+                <p>Đội ngũ người Việt, hiểu văn hóa kinh doanh Việt. Mọi AI Agent đều được tối ưu cho đặc thù thị trường và ngôn ngữ Việt Nam.</p>
+            </div>
+            <div class="ab-value-card reveal reveal--delay-1">
+                <span class="ab-value-card__icon">⚡</span>
+                <h3>Triển khai nhanh</h3>
+                <p>Cam kết setup xong trong 1–3 ngày. Không phải dự án IT kéo dài nhiều tháng. AI Agents sẵn sàng làm việc ngay tuần đầu tiên.</p>
+            </div>
+            <div class="ab-value-card reveal reveal--delay-2">
+                <span class="ab-value-card__icon">💡</span>
+                <h3>Minh bạch hoàn toàn</h3>
+                <p>Giá niêm yết công khai, không phí ẩn. Bạn biết chính xác mình đang trả tiền cho điều gì và AI đang làm gì cho doanh nghiệp.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Why we exist -->
-    <section class="ab-why">
-        <div class="container">
-            <div class="ab-why__inner">
-                <h2>Tại Sao ClaudeMarketplace Ra Đời?</h2>
-                <p>Năm 2024, chúng tôi nhận ra một nghịch lý: AI đang thay đổi cách làm việc của toàn thế giới, nhưng 95% doanh nghiệp vừa và nhỏ tại Việt Nam vẫn chưa biết cách ứng dụng AI một cách thực tế và hiệu quả.</p>
-                <p>Lý do không phải vì thiếu công nghệ — Claude AI của Anthropic đã sẵn sàng. Lý do là vì thiếu một "cầu nối" — một nơi doanh nghiệp có thể tìm thấy giải pháp AI phù hợp với ngành của mình, với chi phí hợp lý và hỗ trợ bằng tiếng Việt.</p>
-                <p><strong>ClaudeMarketplace chính là cầu nối đó.</strong></p>
-                <div class="ab-why__list">
-                    <div class="ab-why__item">
-                        <span class="ab-why__item-icon">🔍</span>
-                        <div class="ab-why__item-text">
-                            <strong>Dễ tìm đúng giải pháp</strong>
-                            <span>22 AI Agents phân loại theo phòng ban, dễ chọn đúng nhu cầu</span>
-                        </div>
-                    </div>
-                    <div class="ab-why__item">
-                        <span class="ab-why__item-icon">🚀</span>
-                        <div class="ab-why__item-text">
-                            <strong>Triển khai không cần code</strong>
-                            <span>Setup 1–3 ngày, không cần đội kỹ thuật</span>
-                        </div>
-                    </div>
-                    <div class="ab-why__item">
-                        <span class="ab-why__item-icon">💬</span>
-                        <div class="ab-why__item-text">
-                            <strong>Hỗ trợ hoàn toàn tiếng Việt</strong>
-                            <span>Đội ngũ người Việt, hiểu đặc thù thị trường</span>
-                        </div>
-                    </div>
-                    <div class="ab-why__item">
-                        <span class="ab-why__item-icon">📊</span>
-                        <div class="ab-why__item-text">
-                            <strong>ROI đo được ngay tháng đầu</strong>
-                            <span>Cam kết kết quả thực tế, không phải hứa hẹn chung chung</span>
-                        </div>
+<!-- ─── WHY WE EXIST ───────────────────────────────────────── -->
+<section class="ab-why">
+    <div class="container">
+        <div class="ab-why__inner">
+            <span class="section-label">Câu chuyện</span>
+            <h2>Tại Sao ClaudeMarketplace Ra Đời?</h2>
+            <p>Năm 2024, chúng tôi nhận ra một nghịch lý: AI đang thay đổi cách làm việc của toàn thế giới, nhưng 95% doanh nghiệp vừa và nhỏ tại Việt Nam vẫn chưa biết cách ứng dụng AI một cách thực tế và hiệu quả.</p>
+            <p>Lý do không phải vì thiếu công nghệ — Claude AI của Anthropic đã sẵn sàng. Lý do là vì thiếu một "cầu nối" — một nơi doanh nghiệp có thể tìm thấy giải pháp AI phù hợp với ngành của mình, với chi phí hợp lý và hỗ trợ bằng tiếng Việt.</p>
+            <p><strong>ClaudeMarketplace chính là cầu nối đó.</strong></p>
+            <div class="ab-why__list">
+                <div class="ab-why__item reveal">
+                    <span class="ab-why__item-icon">🔍</span>
+                    <div class="ab-why__item-text">
+                        <strong>Dễ tìm đúng giải pháp</strong>
+                        <span>22 AI Agents phân loại theo phòng ban, dễ chọn đúng nhu cầu</span>
                     </div>
                 </div>
+                <div class="ab-why__item reveal reveal--delay-1">
+                    <span class="ab-why__item-icon">🚀</span>
+                    <div class="ab-why__item-text">
+                        <strong>Triển khai không cần code</strong>
+                        <span>Setup 1–3 ngày, không cần đội kỹ thuật</span>
+                    </div>
+                </div>
+                <div class="ab-why__item reveal reveal--delay-2">
+                    <span class="ab-why__item-icon">💬</span>
+                    <div class="ab-why__item-text">
+                        <strong>Hỗ trợ hoàn toàn tiếng Việt</strong>
+                        <span>Đội ngũ người Việt, hiểu đặc thù thị trường</span>
+                    </div>
+                </div>
+                <div class="ab-why__item reveal reveal--delay-3">
+                    <span class="ab-why__item-icon">📊</span>
+                    <div class="ab-why__item-text">
+                        <strong>ROI đo được ngay tháng đầu</strong>
+                        <span>Cam kết kết quả thực tế, không phải hứa hẹn chung chung</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CTA -->
-    <section class="ab-cta">
-        <div class="container">
+<!-- ─── CTA ────────────────────────────────────────────────── -->
+<section class="ab-cta">
+    <div class="container">
+        <div class="ab-cta__inner">
+            <span class="ab-cta__label">🚀 Bắt đầu ngay hôm nay</span>
             <h2>Sẵn sàng để AI làm việc cho doanh nghiệp bạn?</h2>
             <p>Tư vấn miễn phí 30 phút — chúng tôi sẽ tìm đúng AI Agent phù hợp với bài toán của bạn.</p>
             <div class="ab-cta__actions">
@@ -386,112 +475,174 @@
                 <a href="/lien-he" class="btn btn--outline btn--lg">💬 Đặt lịch tư vấn miễn phí</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="sf-inner container">
-        <div class="sf-cols">
-          <div class="sf-col sf-col--brand">
-            <a href="/" class="sf-logo" aria-label="ClaudeMarketplace trang chủ">
-              <span class="sf-logo__icon">⚡</span>
-              <span class="sf-logo__name">ClaudeMarketplace</span>
-            </a>
-            <p class="sf-tagline">Marketplace AI Agents đầu tiên tại Việt Nam — Powered by Claude AI (Anthropic).</p>
-            <div class="sf-socials">
-              <a href="https://facebook.com/claudemarketplace" class="sf-social" aria-label="Facebook" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-              <a href="https://linkedin.com/company/claudemarketplace" class="sf-social" aria-label="LinkedIn" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
+</div><!-- /.page-wrap -->
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer class="site-footer" role="contentinfo" aria-label="Thông tin trang">
+    <div class="sf-newsletter">
+        <div class="container sf-newsletter__inner">
+            <div class="sf-newsletter__copy">
+                <strong>Nhận cập nhật AI Agents mỗi tuần</strong>
+                <span>Xu hướng mới · Case study thực tế · Tips triển khai cho doanh nghiệp Việt Nam</span>
             </div>
-          </div>
-          <div class="sf-col">
-            <h3 class="sf-col__title">AI Agents</h3>
-            <nav>
-              <a href="/ai-agents" class="sf-col__link">Tất cả AI Agents</a>
-              <a href="/ai-agents?dept=sales-marketing" class="sf-col__link">Sales & Marketing</a>
-              <a href="/ai-agents?dept=crm-cskh" class="sf-col__link">CRM & CSKH</a>
-              <a href="/ai-agents?dept=content" class="sf-col__link">Content & SEO</a>
-              <a href="/ai-agents?dept=tai-chinh" class="sf-col__link">Tài chính</a>
-            </nav>
-          </div>
-          <div class="sf-col">
-            <h3 class="sf-col__title">Công ty</h3>
-            <nav>
-              <a href="/ve-chung-toi" class="sf-col__link">Về chúng tôi</a>
-              <a href="/dich-vu" class="sf-col__link">Dịch vụ</a>
-              <a href="/tin-tuc-ai-agents" class="sf-col__link">Blog & Tin tức</a>
-              <a href="/lien-he" class="sf-col__link">Liên Hệ</a>
-            </nav>
-          </div>
-          <div class="sf-col">
-            <h3 class="sf-col__title">Hỗ trợ</h3>
-            <nav aria-label="Hỗ trợ khách hàng">
-              <a href="/lien-he" class="sf-col__link">Tư vấn miễn phí</a>
-              <a href="mailto:hello@claudemarketplace.vn" class="sf-col__link">Gửi email</a>
-              <a href="tel:+84912345678" class="sf-col__link">Gọi ngay</a>
-            </nav>
-          </div>
+            <form class="sf-newsletter__form" onsubmit="sfSubscribe(event)">
+                <input type="email" placeholder="Email của bạn..." required aria-label="Email đăng ký nhận tin">
+                <button type="submit">Đăng ký miễn phí</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sf-grid">
+            <div class="sf-brand">
+                <a href="/" class="sf-logo" aria-label="ClaudeMarketplace trang chủ">
+                    <div class="sf-logo__icon">⚡</div>
+                    <div class="sf-logo__text"><span>Claude</span>Marketplace</div>
+                </a>
+                <p class="sf-tagline">Marketplace AI Agents số 1 cho doanh nghiệp Việt Nam. Triển khai tự động hóa thông minh, tăng hiệu suất 3×.</p>
+                <div class="sf-contact-list">
+                    <a href="mailto:hello@claudemarketplace.vn" class="sf-contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        hello@claudemarketplace.vn
+                    </a>
+                    <a href="tel:+84912345678" class="sf-contact-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 13 19.79 19.79 0 0 1 1.93 4.36 2 2 0 0 1 3.9 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +84 (912) 345 678
+                    </a>
+                </div>
+                <div class="sf-social">
+                    <a href="https://facebook.com/claudemarketplace" class="sf-social__item" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/company/claudemarketplace" class="sf-social__item" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" class="sf-social__item" aria-label="YouTube" title="YouTube">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                    <a href="#" class="sf-social__item" aria-label="X / Twitter" title="X (Twitter)">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sf-col">
+                <h3 class="sf-col__title">AI Agents</h3>
+                <nav aria-label="Danh mục AI Agents">
+                    <a href="/ai-agents?dept=sales-marketing" class="sf-col__link">Sales &amp; Marketing</a>
+                    <a href="/ai-agents?dept=phan-tich-kinh-doanh" class="sf-col__link">Phân tích Kinh doanh</a>
+                    <a href="/ai-agents?dept=research-thi-truong" class="sf-col__link">Research Thị trường</a>
+                    <a href="/ai-agents?dept=crm-cskh" class="sf-col__link">CRM &amp; CSKH</a>
+                    <a href="/ai-agents?dept=content" class="sf-col__link">Content &amp; Truyền thông</a>
+                    <a href="/ai-agents?dept=tai-chinh" class="sf-col__link">Tài chính</a>
+                </nav>
+            </div>
+
+            <div class="sf-col">
+                <h3 class="sf-col__title">Tin Tức</h3>
+                <nav aria-label="Danh mục tin tức">
+                    <a href="/tin-tuc-ai-agents" class="sf-col__link">Tin Tức AI Agents</a>
+                    <a href="/tin-tuc-claude-updates" class="sf-col__link">Claude Updates</a>
+                    <a href="/tin-tuc-case-study-doanh-nghiep" class="sf-col__link">Case Study Doanh Nghiệp</a>
+                    <a href="/tin-tuc-huong-dan-trien-khai-ai-agents" class="sf-col__link">Hướng Dẫn Triển Khai</a>
+                </nav>
+                <h3 class="sf-col__title" style="margin-top:1.5rem;">Dịch Vụ</h3>
+                <nav aria-label="Dịch vụ">
+                    <a href="/dich-vu" class="sf-col__link">Đào Tạo AI Agents</a>
+                    <a href="/dich-vu" class="sf-col__link">Tư Vấn &amp; Setup</a>
+                </nav>
+            </div>
+
+            <div class="sf-col">
+                <h3 class="sf-col__title">Công Ty</h3>
+                <nav aria-label="Thông tin công ty">
+                    <a href="/ve-chung-toi" class="sf-col__link">Về Chúng Tôi</a>
+                    <a href="/lien-he" class="sf-col__link">Liên Hệ</a>
+                    <a href="/chinh-sach-bao-mat" class="sf-col__link">Chính Sách Bảo Mật</a>
+                    <a href="/dieu-khoan-su-dung" class="sf-col__link">Điều Khoản Sử Dụng</a>
+                </nav>
+                <h3 class="sf-col__title" style="margin-top:1.5rem;">Hỗ Trợ</h3>
+                <nav aria-label="Hỗ trợ khách hàng">
+                    <a href="/lien-he" class="sf-col__link">Tư vấn miễn phí</a>
+                    <a href="mailto:hello@claudemarketplace.vn" class="sf-col__link">Gửi email</a>
+                    <a href="tel:+84912345678" class="sf-col__link">Gọi ngay</a>
+                </nav>
+            </div>
         </div>
 
         <div class="sf-badges">
-          <div class="sf-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9c0-1.042-.133-2.052-.382-3.016z"/></svg>
-            Bảo mật dữ liệu ISO 27001
-          </div>
-          <div class="sf-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            GDPR Compliant
-          </div>
-          <div class="sf-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Uptime 99.9%
-          </div>
-          <div class="sf-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            500+ Doanh nghiệp tin dùng
-          </div>
-          <div class="sf-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Powered by Claude AI
-          </div>
+            <div class="sf-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9c0-1.042-.133-2.052-.382-3.016z"/></svg>
+                Bảo mật dữ liệu ISO 27001
+            </div>
+            <div class="sf-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                GDPR Compliant
+            </div>
+            <div class="sf-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Uptime 99.9%
+            </div>
+            <div class="sf-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                500+ Doanh nghiệp tin dùng
+            </div>
+            <div class="sf-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Powered by Claude AI
+            </div>
         </div>
 
         <div class="sf-bottom">
-          <div class="sf-bottom__left">
-            <span>© 2025 ClaudeMarketplace</span>
-            <span class="sf-bottom__sep">·</span>
-            <span>🇻🇳 Làm tại Việt Nam</span>
-            <span class="sf-bottom__sep">·</span>
-            <span>Powered by Claude AI</span>
-          </div>
-          <div class="sf-bottom__right">
-            <a href="/chinh-sach-bao-mat" class="sf-bottom__link">Chính sách bảo mật</a>
-            <a href="/dieu-khoan-su-dung" class="sf-bottom__link">Điều khoản</a>
-            <a href="/sitemap.xml" class="sf-bottom__link">Sitemap</a>
-          </div>
+            <div class="sf-bottom__left">
+                <span>© 2025 ClaudeMarketplace</span>
+                <span class="sf-bottom__sep">·</span>
+                <span>🇻🇳 Làm tại Việt Nam</span>
+                <span class="sf-bottom__sep">·</span>
+                <span>Powered by Claude AI</span>
+            </div>
+            <div class="sf-bottom__right">
+                <a href="/chinh-sach-bao-mat" class="sf-bottom__link">Chính sách bảo mật</a>
+                <a href="/dieu-khoan-su-dung" class="sf-bottom__link">Điều khoản</a>
+                <a href="/sitemap.xml" class="sf-bottom__link">Sitemap</a>
+            </div>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
 
-    <button class="scroll-top" id="scrollTopBtn" aria-label="Về đầu trang" title="Về đầu trang">↑</button>
+<!-- ─── SCROLL TO TOP ──────────────────────────────────────── -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="Về đầu trang" title="Về đầu trang">↑</button>
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "Về Chúng Tôi – ClaudeMarketplace",
-        "url": "https://claudemarketplace.vn/ve-chung-toi",
-        "description": "ClaudeMarketplace – Marketplace AI Agents đầu tiên tại Việt Nam, powered by Claude AI của Anthropic.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "ClaudeMarketplace",
-            "url": "https://claudemarketplace.vn",
-            "logo": "https://claudemarketplace.vn/images/logo.png"
-        }
+<!-- ─── SCRIPTS ───────────────────────────────────────────── -->
+<script>
+function sfSubscribe(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const input = e.target.querySelector('input');
+    btn.textContent = '✓ Đã đăng ký!';
+    btn.style.background = 'linear-gradient(135deg,#059669,#10b981)';
+    input.disabled = true; btn.disabled = true;
+}
+</script>
+<script src="/js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Về Chúng Tôi – ClaudeMarketplace",
+    "url": "https://claudemarketplace.vn/ve-chung-toi",
+    "description": "ClaudeMarketplace – Marketplace AI Agents đầu tiên tại Việt Nam, powered by Claude AI của Anthropic.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "ClaudeMarketplace",
+        "url": "https://claudemarketplace.vn",
+        "logo": "https://claudemarketplace.vn/images/logo.png"
     }
-    </script>
+}
+</script>
 </body>
 </html>
