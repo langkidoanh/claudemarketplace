@@ -4,9 +4,7 @@
   "outputDirectory": "frontend",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/ai-agents/:slug", "destination": "/agent-detail" },
-    { "source": "/tin-tuc-:category/:slug", "destination": "/news-detail" },
-    { "source": "/lien-he", "destination": "/contact" },
-    { "source": "/ve-chung-toi", "destination": "/contact" }
+    { "source": "/ai-agents/:slug", "destination": "/agent-detail.html" },
+    { "source": "/tin-tuc-:category/:slug", "destination": "/news-detail.html" }
   ]
 }
